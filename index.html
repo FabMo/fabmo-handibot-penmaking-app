@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FireUp!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/pure-min.css" rel="stylesheet">
+    <link href="css/forms-min.css" rel="stylesheet">
+    <link href="css/grids-responsive-min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+    <div class="container">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#tab-startfire" role="tab" data-toggle="tab">Fire-Up!</a></li>
+        <li><a class="long" href="#tab-details" role="tab" data-toggle="tab">Detail</a></li>
+        <li><a id="preference-tab-link" href="#tab-preferences" role="tab" data-toggle="tab">Preferences</a></li>
+        <li><a id="config-tab-link" href="#tab-config" role="tab" data-toggle="tab">HELP</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- Fire-Up!/start pane -->
+        <div class="tab-pane active" id="tab-startfire">
+            <h2 class="long"><strong>Fire-Up!</strong></h2>
+            <p class="long">Here are a few things you will usually want to do when you Fire-Up to start work. Just CLICK the green bars as needed. You can use the <strong>Short Form</strong> option, below, for a simplified view. And, you can use the Apps tab in the <strong>Configuration Manager</strong> (left pane) to make this your Default Startup view.</p>
+
+              <form id="doclength">
+                <label for="long">Full</label>
+                <input type="radio" name="doclength" id="long" value="long" checked="checked">
+                <label>  </label>
+                <label for="short">Short Form</label>
+                <input type="radio" name="doclength" id="short" value="short">
+              </form>
+            
+            <div>
+              <span class="label label-warning"> USE at StartUp</span>
+                <p class="long"> </p>
+                <p class="long">After you turn on your Handibot, the first thing you will typically want to do is to accurately set the home or zero location for each axis. Most of the instructions on this page are also available as individual functions in the <strong>Macros</strong> folder (left pane).</p>
+              <h3><a class="btn btn-success btn-lg" id="call-c3"> HOME TOOL </a> <span class="long"> Automatically Set the Home Location for X, Y, and Z Axes</span></h3>
+            </div>
+            <div>
+              <hr class="long" width = "90%" noshade>
+              <span class="label label-warning"> OTHER helpful Actions </span>
+              <h3><a class="btn btn-success" id="call-home"> Move Home </a><a class="btn btn-success" id="call-back"> Move to PARK Location </a><a class="btn btn-success" id="call-center"> Move to Center </a><a class="btn btn-success" id="call-pull-keypad"> Make "Keypad" Visible </a> </h3>
+            </div>  
+            <div>
+              <hr class="long" width = "90%" noshade>
+              <span class="label label-warning"> USE after a Bit Change </span>
+                <p class="long"> </p>
+                <p class="long">If you have changed your cutter, you will need to re-set the Z-Zero location. This is done automatically for you by having the tool "touch-off" a Z-Zeroing plate. You will be asked to <strong> put the plate into position under the Z and to put the aligator clip on the cutter shank</strong>. Click "continue" after you are ready. [NOTE: Clip to the cutter-shank and not the collet-nut; the collet-nut does not provide a reliable electrical connection.]</p>
+              <h3><a class="btn btn-success btn-lg" id="call-c2"> Z-ZERO </a> <span class="long"> Setting the Zero Location for the Cutter </span></h3>
+            </div>  
+            <div>
+
+              <div  class="long" class="pure-g">
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 image-container">
+                  <div class="image-wrapper">
+                    <img class='pure-img' id="rotate-plate" src="img/clip-swing.png">
+                    <p class='hole-spacing-id'></p>
+                    <p class='beam-width-id'></p>
+                  </div>
+                </div>
+              </div>  
+
+              <hr class="long" width = "90%" noshade>
+              <hr width = "90%" noshade>
+              <span class="label label-warning"> SPECIALTY FUNCTIONS for Specific Need </span>
+                <p class="long"> </p>
+                <p class="long">Sometimes you will need to manually set the Z-zero location based on the current value rather than use automatic Z-Zero function. For example if you want to manually determine the correct 0 for the Z. First make sure your XYZ locations are initially accurate by running the Home Tool routine (or Macro#3). Then set the 0 for the Z where you would like it to be using the 0 (orange) button in the red panel (right side). Then, Click below ...</p>
+              <h3><a class="btn btn-success" id="call-set-z-zero"> Set Z-Zero to Current Offset </a> </h3>
+                <p> </p>
+                <p> </p>
+<!--
+              <h3><a class="btn btn-success" id="call-reset-z-off"> Reset Value for Zeroing Plate Height </a> </h3>
+                <p>You may find it necessary, on occasion, to adjust the value for the distance between the Zeroing plate and the material surface that is used to compute the "cutter-length-offset". This routine will step you through the process of getting the correct plate height.</p>
+-->
+            </div>  
+        </div><!-- start pane -->
+
+        <!-- Details Pane -->
+        <div class="tab-pane" id="tab-details">
+            <h2>Detailed Info on this FireUp! App</h2>
+            <p>This App contains a variety of "helper" functions and information for setting-up and using your tool. It's designed to help you learn about your tool and its operation. You can simplify the view by selecting <strong>Short Form</strong> after you get familiar with the functions. Most of the instructions are also available as single function "macros" in the <strong>Macros</strong> folder (left pane). After you become knowledgeable and comfortable in the use of your tool, you may find you don't use the App itself anymore. Feel free to delete it (you can always get it back from the Handibot website)</p>
+            <h3>Home Tool</h3>
+            	<p>Homing the Tool is the first thing that you will usually want to do after powering your tool up. Determining the zero location of each axis is automatically done for you by moving into the end-stops of the axis and then backing off an exact known distance to the location where Zero for the particular axis is set, defining, or re-establishing, your Home Location for each axis. It is very accurate and allows you to always get back to the exact location you were at when the tool was shut down. NOTE THAT IT WILL MAKE SOME NOISE at hit the END STOPS AGGRESSIVELY.</p>
+            	<p>The back-off distance that is used in this function set at the factory and saved as a persistant variable. As you get more experienced, you may want to change the back-off distance in order to move your zero locations to better suit your work, for a particular project, or just to make a slight adjustment of your zero location. You can modify the back-off distance for each axis in the <code>Preferences</code> tab (above).</p>
+            	<p>Using the Set Home function in this app is the same thing as clicking on <strong>Macro#3</strong> in the Macros folder. It also the same as using the <strong>[C3] Command</strong> in the Sb4 App or in the OpenSBP fabrication language. You can use each, interchangeably. [CustomCut in Sb4 = Macro in FabMo.]</p> 
+
+        		<div class="well" id="cartesian-message">
+                  <p><strong>Your Tool's Coordinate System</strong> </p>
+              		<p>Your tool moves around in a Cartesian coordinate system. The X axis (left/right) and the Y axis (front/back) are in the plane of the material. The X = 0 and Y = 0 locations are at the bottom left corner as you face the front of the tool. Moving the tool-head to the right is moving in increasing value in the X axis, moving it towards the back is moving it in increasing value the Y axis. In most uses, these coordinates are used as the tool's Base Coordinates. Temporary working coordinates can be set as offsets from these Base Coordinates. Up/Down motion of the router is the Z axis. Down is the negative direction. Zero in the Z is typically set (as a working coordinate, offset from the top stop) at the height that the cutter tip is just touching the surface of the material or the bed. To explore the coordinate system, play with the keypad on in the red, DRO panel on the right:</p>
+              <button id="call-DRO-rollout" class="btn btn-primary">click here if the KEYPAD is not visble</button>
+              <button id="call-DRO-hide" class="btn btn-primary">or, Hide the KEYPAD</button>
+                  <p></p>
+              		<p>The "Touch-and-Go App" can be very instructive in understanding the coordinate system. It is also helpful in just moving the tool around. Click the button below to try it out (restart the Fire-Up App to come back here when you are finished):</p>
+              		<h4><a class="btn btn-success" id="call-touch-and-go"> start: Touch-and-Go </a></h4>
+            	</div>
+
+            <h3>Z-Zero</h3>
+            	<p>Z-Zero is the short name for setting the zero location for the cutter. We are actually determining the cutter length and setting the 0 location for the tip in order to set the working location for the tip of the cutter in the Z axis. Using the Z-Zero functionality, your tool uses electrical contact with a Z-zero plate to tell exactly the distance of tip of the cutter from the top stop. It then adds the known distance from the Z-zero plate to the material surface in order to calculate an overall back-off distance from the top. We call this total distance, "current_cutter_Zoffset".</p>
+            	<p>You will also see the "current_cutter_Zoffset" in the <code>Preferences</code> tab (above).</p>
+
+        </div><!-- details pane -->
+
+
+        <!-- Preferences Pane -->
+        <div class="tab-pane" id="tab-preferences">
+          <h2>Preference Settings</h2>
+	          <p>Your Handibot comes with a number of preset variables that it uses in operations to assist you. These variables all have default values, but you are able to modify them to suit your specific needs. After you change them, the values will persist even when the tool is turned off. These preference settings are in additions to the System Configuration available in the left side pull out; the latter define the actual motion and mechanical operation of the tool.</p>
+	          <p>Preference settings are saved using a system of "persistent variables". There are several ways these persistent variables can be modified directly or by job files, the most direct approach is to just change them here. Make sure to hit the SAVE button after editing.</p>
+
+       	    <!-- Responsive form for inputting preferences -->
+	        <div class="row">
+	             <div class="col-sm-7" style="margin-left: auto; margin-right: auto; text-align: left; ">
+	              <form class="form-horizontal" id="form-jobs">
+	              <h4>Variables for Setting X, Y and Z Zeroing Back-Off Distances </h4>
+	              <p>These variables are used to set the distance for backoff from proximity switches or end stops. </p>
+	                <div class="form-group">
+	                  <label for="pref-input-xpullback" class="col-sm-3 control-label">x_backoff</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-x-pull" value=".075">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="pref-input-ypullback" class="col-sm-3 control-label">y_backoff</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-y-pull" value=".075">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+                  <div class="form-group">
+                    <label for="pref-input-ypullback" class="col-sm-3 control-label">z_backoff</label>
+                    <div class="col-sm-9">
+                      <div class="input-group has-success">
+                        <input class="form-control num-input" id="pref-input-z-pull" value=".075">
+                        <span class="input-group-addon">in</span>
+                      </div>
+                    </div>
+                  </div>
+	              <h4>Variables for Setting Z-Zero </h4>
+	              <p>Variable used to set Z-Zero Offset by cutter length (Macro 2 or C2). </p>
+	                  <div class="form-group">
+	                  <label for="job-input-zlength" class="col-sm-3 control-label">Cutter Length</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-cur-zlength" value=".25">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+                <p>Variable used to set Z-Zero Plate Thickness/Height (Macro 2 or C2; and Macro 77). </p>
+	                <div class="form-group">
+	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">Zero Plate Thickness</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-plate-offset" value=".75">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	              <h4>Variables for Setting a Parking Location </h4>
+	              <p>Setting the location for move to a Park location. You might use this at the end of jobs. There is a button for it in the Fire-Up! App. </p>
+	                  <div class="form-group">
+	                  <label for="job-input-xpark" class="col-sm-3 control-label">X Park Location</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-x-park" value="3">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="job-input-ypark" class="col-sm-3 control-label">Y Park Location</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-y-park" value="7">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="job-input-zpark" class="col-sm-3 control-label">Z Park Location</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-z-park" value="1.5">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                  <div class="col-sm-12 has-success" style="text-align: right;">
+	                    <a class="btn btn-success btn-lg" id="pref-save">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
+	                  </div>
+	                </div>
+	              </form>
+	             </div> 
+	          </div> <!-- row -->
+        </div> <!-- tab pane -->
+
+        <div class="tab-pane" id="tab-config">
+          <h2>Additional Help Resources</h2>
+            <p>Handibots are a new kind of power tool. They are intrinsically safer than manual power tools. But please read the safety information to understand the precautions you should observe with these new tools.</p>
+          <h3><a class="btn btn-primary" id="get-safety"> Get Safety Information for Using Handibots </a></h3>
+            <p>The Handibot Manual provides information on getting-started, setting-up, and using your Handibot.</p>
+          <h3><a class="btn btn-primary" id="get-manual"> Get the Handibot Manual </a></h3>
+            <p>Additional resources and help are available on the Handibot User Forum.</p>
+          <h3><a class="btn btn-primary" id="go-forum"> Handibot Forum </a></h3>
+          
+          <hr width = "90%" noshade>
+          <hr width = "90%" noshade>
+            
+          <h3>System Configuration Information to Share with Tech Support</h3>
+            <p>The following is a listing of the current, system-wide configuration tree for the FabMo digital fabrication platform that is running on your Handibot. It can be useful for diagnostics:</p>
+            <div class="well" id="config-system-config">
+              <em>On a live Fabmo system, system configuration information would appear here.</em>
+            </div>
+        </div>
+      </div> <!-- tab content -->
+    </div><!-- container -->
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/fabmo.js"></script>
+  	<script type="text/javascript">
+  		var fabmo = new FabMoDashboard();
+  	</script>
+    <script src="js/control.js"></script>
+    <script src="js/preferences.js"></script>
+    <script src="js/helptab.js"></script>
+    <script src="js/actions.js"></script>
+   
+
+    <script type="text/javascript">
+        // Prevent a stray enter key from inadvertently submitting a form (and setting the tool in motion!)
+        $(document).ready(function() {
+          fabmo.getAppConfig(function(err,config){
+              var doclength = config.doclength || "long";
+              that = doclength;
+              if(that==='short') {
+                $('#short').prop("checked", true);
+              }
+              else {
+                $('#long').prop("checked", true);
+              }
+              updateConsolidation();
+            $(window).keydown(function(event){
+              if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+              }
+            });
+            $('#doclength').change(function(){
+                that = $('input[name="doclength"]:checked').val();
+                updateConsolidation();
+              });
+          });
+        });
+    </script>
+  </body>
+</html>

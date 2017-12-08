@@ -1,0 +1,13 @@
+body {
+	margin-top: 10px;
+}
+
+#config-system-config {
+	font-family: monospace;
+	word-wrap: break-word;
+}
+
+.btn{
+	margin-bottom: 10px;
+    margin-left: 10px;
+}
