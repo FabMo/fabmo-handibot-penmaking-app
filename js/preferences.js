@@ -1,3 +1,9 @@
+/*
+* CALLS for PREFERENCES TAB
+* 
+*
+*/
+
 function validateInput(target) {
   var f = parseFloat(target.val());
   if(isNaN(f) || f === undefined) {

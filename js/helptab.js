@@ -1,3 +1,9 @@
+/*
+* CALLS for HELP TAB
+* 
+*
+*/
+
 $("#get-safety").click(function(evt) {
     fabmo.navigate('http://docs.handibot.com/doc-output/Handibot_Safety.pdf', {target : '_blank'});
 });

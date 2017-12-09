@@ -1,3 +1,13 @@
+/*
+* MAIN UTILITIES FOR PEN MAKING APP
+* 
+* Some make use of PEN MAKING MACROS #60-70
+* 
+*
+*/
+
+// Notes ...
+
 var that;
 
 function updateConsolidation() {
@@ -42,6 +52,7 @@ $("#call-DRO-hide").click(function(evt) {
 $("#call-touch-and-go").click(function(evt) {
     fabmo.launchApp('fabmo-touchandgo');
 });
+
 // Updating Unit Type before Centering Tool
 function updateUnits (callback){
   fabmo.getConfig(function(err, cfg) {
