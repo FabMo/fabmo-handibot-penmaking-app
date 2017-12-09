@@ -2,7 +2,7 @@
 * MAIN UTILITIES FOR PEN MAKING APP
 * 
 * Some make use of PEN MAKING MACROS #60-70
-* 
+* FYI, several different techniques are illustrated to call SBP code
 *
 */
 
@@ -22,35 +22,34 @@ function updateConsolidation() {
        }
 }
 
-$("#call-c3").click(function(evt) {
+$("#call-homepen").click(function(evt) {
 	  fabmo.runSBP('C#,3');
+  // run C3
+  // move to x offset and zero
+  // move to starting position in Y and set to blank1_front
+  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
+  // macro 72 should set 0 just in case we need to reuse after power off, etc
 });
-$("#call-c2").click(function(evt) {
-    fabmo.runSBP('C#,2');
-});
-$("#call-home").click(function(evt) {
+
+$("#call-cutterheight").click(function(evt) {
     fabmo.runSBP('MH,');
+  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
+  // macro 72 should set 0 just in case we need to reuse after power off, etc
 });
-$("#call-back").click(function(evt) {
-    fabmo.runSBP('C#,79');
+
+$("#call-safepark").click(function(evt) {
+    fabmo.runSBP('MH,');
+    //pull z up to safe z (clearing indexer)
+    //then move to parking location at rear
 });
-$("#call-pull-keypad").click(function(evt) {
-    fabmo.showDRO();
+
+$("#call-blanks").click(function(evt) {
+    fabmo.runSBP('MH,');
+    //sequentially step through current frant and back location of blank 1 and 2
 });
+
 $("#call-set-z-zero").click(function(evt) {
     fabmo.runSBP('C#,78');
-});
-$("#call-reset-z-off").click(function(evt) {
-    fabmo.runSBP('C#,77');
-});
-$("#call-DRO-rollout").click(function(evt) {
-    fabmo.showDRO();
-});
-$("#call-DRO-hide").click(function(evt) {
-    fabmo.hideDRO();
-});
-$("#call-touch-and-go").click(function(evt) {
-    fabmo.launchApp('fabmo-touchandgo');
 });
 
 // Updating Unit Type before Centering Tool
@@ -73,16 +72,9 @@ $("#call-center").click(function(evt) { // CENTER HERE
     updateUnits(toCenter);
 });
 
-//$("#call-pull-keypad").click(function(evt) {
-//  fabmo.notify('info', 'Heads Up! How extensive can this message be??');
-//});
 
-$("#nav-showdro").click(function(evt) {
-  fabmo.showDRO();
-});
-$("#nav-hidedro").click(function(evt) {
-  fabmo.hideDRO();
-});
+// Illustration of other FabMo function calls ... fyi
+
 $("#dash-info").click(function(evt) {
   fabmo.notify('info', 'Heads Up!');
 });

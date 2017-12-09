@@ -4,6 +4,8 @@
 *
 */
 
+// needed here if in controls.js????
+
 function validateInput(target) {
   var f = parseFloat(target.val());
   if(isNaN(f) || f === undefined) {
