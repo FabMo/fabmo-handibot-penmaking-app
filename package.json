@@ -1,13 +1,13 @@
 {
-  "name": "Fire-Up!",
+  "name": "Pen Making",
   "main": "./index.html",
   "icon": "icon.png",
-  "icon_color": "#9C210C",
-  "version": "1.0.7",
+  "icon_color": "white",
+  "version": "0.0.1",
   "author": "Ted Hall + Ryan Sturmer + Jimmy Lucidarme + Brendan Collins",
   "website": "http://www.handibot.com",
-  "description": "Daily Start-Up and Info",
-  "id": "fabmo-fireup",
+  "description": "Utilities for Pen Making",
+  "id": "fabmo-penmaker",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-zip": "^0.17.1"
