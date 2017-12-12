@@ -8,11 +8,11 @@
 
 // Notes ...
 
+
 var that;
 
+// colapse display if requested ...
 function updateConsolidation() {
-//    that = doclength;
-
        if (that === "long"){
          $('.long').slideDown();
          fabmo.setAppConfig({"doclength":"long"});
@@ -23,12 +23,7 @@ function updateConsolidation() {
 }
 
 $("#call-homepen").click(function(evt) {
-	  fabmo.runSBP('C#,3');
-  // run C3
-  // move to x offset and zero
-  // move to starting position in Y and set to blank1_front
-  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
-  // macro 72 should set 0 just in case we need to reuse after power off, etc
+    DoJobFile("jobs/home_pen.sbp");
 });
 
 $("#call-cutterheight").click(function(evt) {
