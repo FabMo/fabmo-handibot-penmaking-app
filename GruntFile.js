@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     zip: {
       'build': {
-        src: ["*.html","js/*.js","js/lib/*.js","css/*.css","fonts/*","img/*.png","icon.png","package.json"],
+        src: ["*.html","js/*.js","js/lib/*.js","css/*.css","fonts/*","img/*.png","img/*.jpg","jobs/*.sbp","icon.png","package.json"],
         dest: 'build/<%= pkg.name %>_v<%= pkg.version %>.fma'
       }
     },
