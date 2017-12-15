@@ -24,8 +24,9 @@ function updateConsolidation() {
 
 // 3 Methods for Running SBP Files ------------------------------------------------ 
 
-function load_SBPfile_run (file, content) {
-// get json string of sbp part file and DIRECT run (no job history)
+function load_SBPfile_run (file) {
+// #1  get json string of sbp part file and DIRECT run (no job history)
+  var content = "";
   jQuery.get(file, function(data) {
       content += data;
     })
@@ -36,8 +37,9 @@ function load_SBPfile_run (file, content) {
   });
 }
 
-function load_SBPfile_submitjob (file, content) {
-// get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+function load_SBPfile_submitjob (file) {
+// #2  get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+  var content = "";
   jQuery.get(file, function(data) {
       content += data;
     })
@@ -57,8 +59,9 @@ function load_SBPfile_submitjob (file, content) {
 
 //
 // this should be about right but AWAITING FIXES to submitJog to make OPERATIONAL
-/*function load_SBPfile_injectjob (file, content) {
-// get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+/*function load_SBPfile_injectjob (file) {
+// #3  get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+  var content = "";
   jQuery.get(file, function(data) {
       content += data;
     })
@@ -79,7 +82,6 @@ function load_SBPfile_submitjob (file, content) {
         stayHere: true
         }, function(err, message) {
         if (err){
-          console.log("gothere")
           console.log(err);
          } else {
             fabmo.runNext(function(err,message) {
@@ -100,21 +102,18 @@ function load_SBPfile_submitjob (file, content) {
 // Calls for this app --------------------------------------------------------------
 
 $("#call-run_homePen").click(function(evt) {
-  var sbp_file = "jobs/home_pen.sbp";
-  var sbp_fileContent = "";
-  load_SBPfile_run(sbp_file,sbp_fileContent);
+  var sbp_file = "jobs/test1.sbp";
+  load_SBPfile_run(sbp_file);
 });
 
 $("#call-submitJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
-  var sbp_fileContent = "";
-  load_SBPfile_submitjob(sbp_file,sbp_fileContent);
+  load_SBPfile_submitjob(sbp_file);
 });
 
 $("#call-injectJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
-  var sbp_fileContent = "";
-  load_SBPfile_injectjob(sbp_file,sbp_fileContent);
+  load_SBPfile_injectjob(sbp_file);
 });
 
 $("#call-cutterheight").click(function(evt) {
