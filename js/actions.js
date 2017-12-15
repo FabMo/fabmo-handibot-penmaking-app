@@ -55,54 +55,63 @@ function load_SBPfile_submitjob (file, content) {
   });
 }
 
-function load_SBPfile_injectjob (file, content) {
+//
+// this should be about right but AWAITING FIXES to submitJog to make OPERATIONAL
+/*function load_SBPfile_injectjob (file, content) {
 // get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
   jQuery.get(file, function(data) {
       content += data;
     })
     .done(function() {
-        console.log("LOADED - ", file );
+        console.log("LOADED XXX- ", file );
         console.log("With: ", content );
       job = file.replace('jobs/', '');
       job = job.replace('.sbp', '');
-
+    fabmo.clearJobQueue(function(err,data){
+      if (err){
+        cosole.log(err);
+      } else {
       fabmo.submitJob({
         file: content,
         filename: job + '.sbp',
         name: job,
         description: "App Job request for: " + file,
         stayHere: true
-
-        //if (err){
-        //  console.log(err);
-        // } else {
-            fabmo.runNext()
-               //if (err) {
-               //  console.log(err);
-               //} else {
+        }, function(err, message) {
+        if (err){
+          console.log("gothere")
+          console.log(err);
+         } else {
+            fabmo.runNext(function(err,message) {
+               if (err) {
+                 console.log(err);
+               } else {
                    console.log('running');
-              // }
-             //});
-          // }
+               }
+             });
+           }
         });
-  });
+      }
+    });
+   });
 }
+*/
 
 // Calls for this app --------------------------------------------------------------
 
-$("#call-testfileRun").click(function(evt) {
+$("#call-runSBP").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   var sbp_fileContent = "";
   load_SBPfile_run(sbp_file,sbp_fileContent);
 });
 
-$("#call-testsubmitJob").click(function(evt) {
+$("#call-submitJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   var sbp_fileContent = "";
   load_SBPfile_submitjob(sbp_file,sbp_fileContent);
 });
 
-$("#call-testinjectJob").click(function(evt) {
+$("#call-injectJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   var sbp_fileContent = "";
   load_SBPfile_injectjob(sbp_file,sbp_fileContent);
