@@ -102,7 +102,7 @@ function load_SBPfile_submitjob (file) {
 // Calls for this app --------------------------------------------------------------
 
 $("#call-run_homePen").click(function(evt) {
-  var sbp_file = "jobs/test1.sbp";
+  var sbp_file = "jobs/home_pen.sbp";
   load_SBPfile_run(sbp_file);
 });
 
