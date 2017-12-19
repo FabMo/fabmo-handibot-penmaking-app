@@ -44,7 +44,7 @@ function load_SBPfile_submitjob (file) {
       content += data;
     })
     .done(function() {
-        console.log("LOADED - ", file );
+        console.log("LOADED/PASSED - ", file );
         console.log("With: ", content );
       job = file.replace('jobs/', '');
       job = job.replace('.sbp', '');
@@ -66,7 +66,7 @@ function load_SBPfile_submitjob (file) {
       content += data;
     })
     .done(function() {
-        console.log("LOADED XXX- ", file );
+        console.log("LOADED/INSERTED - ", file );
         console.log("With: ", content );
       job = file.replace('jobs/', '');
       job = job.replace('.sbp', '');

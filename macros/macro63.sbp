@@ -1,0 +1,109 @@
+'!FABMO!name: Align Mandrel
+'!FABMO!description: Check alignment of Mandrel on Indexer
+' Name: INDEXER: Align Mandrel
+' Description: Check alignment of Mandrel on Indexer
+'   
+' Platform: Handibot2
+' Author: Gordon Bergrfors, Ted Hall
+' History:
+'   2017/11/11 - Initial version (th)
+
+SU, 0            ' Set to Inches; Units will auto-revert to current starting units at end of file
+
+'--- Settings ---
+&ShaftDia = 0.2500  ' (inch equivalent of 7mm)
+&HubDiameter = 1.4095
+&HubRadius = (&HubDiameter/2) + 0.1
+$ContactInput = 1
+&SearchDistance = 4.0 
+&SearchSpeedSlow = 0.1
+&SearchSpeedFast = 0.5
+&backoff = 0.5
+&ZTouchCnt = 0
+&XTouchCnt = 0
+
+MS, 1, 1	' Speeds will auto-revert back to current values at end of file
+JS, 3, 3
+
+' -------- Main Program Section --------
+   'PAUSE "Attach ZZero Alligator Clip to Cutter Shank. -Resume- when Ready"
+   'PAUSE "Attach Calibration Alligator Clip wire to Mandrel Shank and Swing-Out Target. -Resume- when Ready"
+   GOSUB check_input
+   'Start at top of mandrel hub
+   &xpos = %(1)
+   &ypos = %(2)
+   &bpos = %(5)
+   GOSUB touch_in_z
+   GOSUB find_center
+   &Hub = (&rightLoc - &leftLoc)
+   &HubDiameter = &Hub - &ShaftDia
+   PAUSE "Hub Diameter = " + &HubDiameter
+   &Radius = &HubDiameter/2
+   &HubRadius = &Radius + 0.1
+   MZ, %(3) + 0.25
+   PAUSE "Z Offset = " + &Radius
+   'Move to front on mandrel shaft
+   MY, %(2) + 1.25
+   GOSUB touch_in_z
+   GOSUB find_center
+   'Move to back on mandrel shaft
+   MY, %(2) + 4.5
+   GOSUB touch_in_z
+   GOSUB find_center
+   M2, ((&leftLoc + &rightLoc) / 2), &ypos
+
+END
+
+' --- Subroutines ---
+touch_in_z:    
+   ' Touch Off of top 
+   PZ, %(3) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   ' Go to plate location
+   IF &ZTouchCnt == 0 THEN GOSUB ZTop
+   &ZTouchCnt = &ZTouchCnt + 1
+   RETURN
+
+find_center:   
+   MZ, &topZ + 0.125
+   ' Move to Left side, Plunge and Rotate if first time
+   MB, &bpos + 90
+   MX, %(1) - 1
+   MZ, &topZ - &HubRadius
+   
+   PX, %(1) + &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &leftLoc = %(1)
+   MX, %(1) - &backoff
+
+   MZ, &topZ + 0.25
+   MX, &xpos + 1
+   MZ, &topZ - &HubRadius
+   PX, %(1) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &rightLoc = %(1) 
+   MX, %(1) + &backoff
+
+   MZ, &topZ + 0.125
+   MX, ((&leftLoc + &rightLoc) / 2)
+
+   MB, &bpos
+   
+   PZ, %(3) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   IF &ZTouchCnt == 0 THEN GOSUB ZTop   
+   PAUSE "Centered at a Height!"
+   MZ, &topZ + 0.25
+
+   RETURN
+  
+ZTop:
+  &topZ = %(3)
+  &SearchDistance = 1.5 
+  RETURN
+  
+check_input:
+    IF %(51) = 1 THEN GOTO check_input_fail
+	RETURN
+
+check_input_fail:
+    END 'Input switch is already tripped. Cannot zero the tool. Move Off Switch and Retry.
+
+END
+

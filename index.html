@@ -28,7 +28,7 @@
             <h2 class="long" style="color:darkblue"><strong>PenMaker</strong>
                  <div class="pure-u-2 pure-u-md-2-3 pure-u-lg-2-3 image-container">
                   <div class="image-wrapper">
-                   <img class='pure-img' src="img/sample-pen-s.png">
+                   <img class='pure-img' src="img/sample-pen-vs.png">
                   </div>
                  </div> 
             </h2>
@@ -45,22 +45,24 @@
                 <p> </p>
                 <p> </p>
             
+            <hr class="long" width = "90%" noshade>
             <div>
               <span class="label label-warning"> USE to Start a Pen Making Project</span>
                 <p class="long"> </p>
-                <p class="long">You can use this function to set-up your tool for creating pens in the Handibot Pen Station Package. It will also be useful in preparing for pen carving as you get more experienced and develop your own projects. The function will <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel, <strong>set the Y location</strong> for the first blank, and <strong>position the tool for setting the Z height</strong> for your cutter.</p>
-              <h3><a class="btn btn-success btn-lg" id="call-run_homePen"> HOME TOOL for PENS </a> <span class="long"> Automatically Set the Home Location for X, Y, and Z Axes over Pen-Carving Indexer</span></h3>
+                <p class="long">You can use the Home Tool function to set-up your tool for creating pens in the Handibot Pen Station Package. It will also be useful in preparing for pen carving as you get more experienced and develop your own projects. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel, <strong>set the Y location</strong> for the first blank, and <strong>position the tool for setting the Z height</strong> for your cutter. From the factory, the set locations are for the Pen Station Projects, but you can change these for your own projects in the Preferences Tab. The Detail Tab describes how it all works.</p>
+              <h3><a class="btn btn-success btn-lg" id="call-run_homePen"> HOME TOOL for PENS </a> <span class="long"> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
             </div>
             <div>
               <hr class="long" width = "90%" noshade>
+              <hr class="long" width = "90%" noshade>
               <span class="label label-warning"> OTHER Pen Making Help </span>
-              <h3><a class="btn btn-success" id="call-submitJob"> Check Blank Locations </a><a class="btn btn-success" id="call-testsubmitJob"> Position for Setting Cutter </a><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a></h3>
+              <h3><a class="btn btn-success" id="call-submitJob"> Check Blank Locations </a><a class="btn btn-success" id="call-testsubmitJob"> Position for Setting New Cutter </a><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a></h3>
             </div>  
             <div>
               <hr class="long" width = "90%" noshade>
               <span class="label label-warning"> Maintenance and Alignment </span>
                 <p class="long"> </p>
-                <p class="long">If you have changed your cutter, you will need to re-set the Z-Zero location. This is done automatically for you by having the tool "touch-off" a Z-Zeroing plate. You will be asked to <strong> put the plate into position under the Z and to put the aligator clip on the cutter shank</strong>. Click "continue" after you are ready. [NOTE: Clip to the cutter-shank and not the collet-nut; the collet-nut does not provide a reliable electrical connection.]</p>
+                <p class="long"> Your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will automatically check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned. First, remove any fittings or bushings from the mandrel and clamp it into working location. Then insert the 1/4" alignment rod (solid drill rod) into the router. After the rod is in place, you will need to attach the aligator clips to the mandrel as indicated here. Click "continue" after you are ready.</p>
               <h3><a class="btn btn-success btn-lg" id="call-c2"> Check Alignment of Indexer </a> <span class="long"> Check the Horizontal and Vertical Alignment of your Rotary Indexer </span></h3>
             </div>  
             <div>
@@ -117,9 +119,9 @@
 
         <!-- Preferences Pane -->
         <div class="tab-pane" id="tab-preferences">
-          <h2>Preference Settings</h2>
-	          <p>Your Handibot comes with a number of preset variables that it uses in operations to assist you. These variables all have default values, but you are able to modify them to suit your specific needs. After you change them, the values will persist even when the tool is turned off. These preference settings are in additions to the System Configuration available in the left side pull out; the latter define the actual motion and mechanical operation of the tool.</p>
-	          <p>Preference settings are saved using a system of "persistent variables". There are several ways these persistent variables can be modified directly or by job files, the most direct approach is to just change them here. Make sure to hit the SAVE button after editing.</p>
+          <h2>Preference Settings for Pen Turning</h2>
+	          <p>This page allows you to put your own values into variable settings for managing Pen Turning. Your Handibot comes with a number of preset variables for normal operations that you can mangae in the Fire-Up!. The page here is explicitly for Pen Turning. The initial/default values are for the use with the Projects that come with the Pen Station Package from Handibot.</p>
+	          <p>Preference settings are saved using a system of "persistent variables". That is, they will be remembered even when you turn off your tool and turn it back on. There are several ways these persistent variables can be modified directly or by job files, the most direct approach is to just change them here. Make sure to hit the SAVE button after editing.</p>
 
        	    <!-- Responsive form for inputting preferences -->
 	        <div class="row">

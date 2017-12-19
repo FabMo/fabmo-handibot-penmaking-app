@@ -1,0 +1,64 @@
+'!FABMO!name: INDEXER: Center-Indexer
+'!FABMO!description: Find center point around shaft
+' Name: INDEXER: Center-Indexer
+' Description: Find center point around shaft
+'   
+' Platform: Handibot2
+' Author: Ted Hall
+' History:
+'   2017/11/11 - Initial version (th)
+
+SU, 0                         ' Set to Inches; Units will auto-revert to current starting units at end of file
+
+'--- Settings ---
+$ContactInput = 1
+&SearchDistance = 1.0 
+&SearchSpeedSlow = 0.1
+&SearchSpeedFast = 0.5
+&backoff = 1.0
+
+MS, 1, 1					  ' Speeds will auto-revert back to current values at end of file
+JS, 3, 3
+
+' -------- Main Program Section --------
+GOSUB check_input
+GOSUB find_center
+END
+
+' --- Subroutines ---
+find_center:    
+               ' Go to plate location
+   'PAUSE "Attach Aligator Clip to Cutter Shank and Swing-Out Target. -Resume- when Ready"
+   &zpos = %(3)
+   &ypos = %(2)
+   &xpos = %(1)
+
+   PX, %(1) + &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &leftLoc = %(1)
+   MX, %(1) - &backoff
+
+   MZ, %(3) + 1
+   MX, %(1) + 2
+   MZ, %(3) - 1
+   PX, %(1) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &rightLoc = %(1) 
+   MX, %(1) + &backoff
+
+   MZ, %(3) + 1
+   MX, ((&leftLoc + &rightLoc) / 2)
+
+   
+   PZ, %(3) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   PAUSE "Centered at a Height!"
+   RETURN
+
+
+check_input:
+    IF %(51) = 1 THEN GOTO check_input_fail
+	RETURN
+
+check_input_fail:
+    END "Input switch is already tripped. Cannot zero the tool. Move Off Switch and Retry."
+
+END
+

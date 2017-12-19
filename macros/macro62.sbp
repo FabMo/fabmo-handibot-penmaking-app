@@ -1,0 +1,44 @@
+'!FABMO!name: Touch-in-Z
+'!FABMO!description: Just touch off in Z and stop
+' Name: INDEXER: Touch-in-Z
+' Description: Just touch off in Z and stop
+'   
+' Platform: Handibot2
+' Author: Ted Hall
+' History:
+'   2017/11/11 - Initial version (th)
+
+SU, 0                         ' Set to Inches; Units will auto-revert to current starting units at end of file
+
+'--- Settings ---
+$ContactInput = 1
+&SearchDistance = 1.0 
+&SearchSpeedSlow = 0.1
+&SearchSpeedFast = 0.5
+&backoff = 1.0
+
+MS, 1, 1					  ' Speeds will auto-revert back to current values at end of file
+JS, 3, 3
+
+' -------- Main Program Section --------
+GOSUB check_input
+GOSUB touch_in_z
+END
+
+' --- Subroutines ---
+touch_in_z:    
+               ' Go to plate location
+   PZ, %(3) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   PAUSE "At Z Target!"
+   RETURN
+
+
+check_input:
+    IF %(51) = 1 THEN GOTO check_input_fail
+	RETURN
+
+check_input_fail:
+    END "Input switch is already tripped. Cannot zero the tool. Move Off Switch and Retry."
+
+END
+
