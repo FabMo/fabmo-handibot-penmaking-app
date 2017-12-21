@@ -99,11 +99,71 @@ function load_SBPfile_submitjob (file) {
 }
 */
 
+// Load a Macro File
+function InstallMacro (numMacro,type_mac,name,description) {
+  var sbp_macro = "";
+  var source_folder = type_mac + "/macro_";
+  var source_data = source_folder + numMacro + ".sbp";
+  jQuery.get(source_data, function(data) {
+      sbp_macro += data;
+    })
+    .done(function() {
+      source_data = source_data.replace(source_folder, '');
+      source_data = source_data.replace('.sbp', '');
+      var macro = {};
+      macro.id = source_data;
+      macro.name = name;
+      macro.description = description;
+      macro.content = sbp_macro;
+
+    console.log("id: ", macro.id );
+    console.log("name: ", macro.name );
+
+      // then, create the macro with id macro.id
+    fabmo.updateMacro(macro.id,{},function(err, result) {
+     // set the macro fields (name, description,content);
+      fabmo.updateMacro(macro.id,{name:macro.name,content:macro.content,description:macro.description}, function(err, result) {
+          fabmo.notify('info', "Macro '" + macro.id + "' saved.");
+        });
+      });
+  });
+}
+
 // Calls for this app --------------------------------------------------------------
 
-$("#call-run_homePen").click(function(evt) {
-  var sbp_file = "jobs/home_pen.sbp";
+$("#install-pen-macros").click(function(evt) {
+    InstallMacro(60, "macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
+    InstallMacro(61, "macros","INDEXER: Center-Indexer","Find center point around shaft");
+    InstallMacro(62, "macros","Touch-in-Z","Just touch off in Z and stop");
+    InstallMacro(63, "macros","Align Mandrel","Check alignment of Mandrel on Indexer");
+    InstallMacro(64, "macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
+});
+
+$("#call-run-homePen").click(function(evt) {
+  var sbp_file = "jobs/home_pen_blank_1.sbp";
   load_SBPfile_run(sbp_file);
+});
+
+$("#call-run-blank-2").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_2.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-cutterheight").click(function(evt) {
+    fabmo.runSBP('MH,');
+  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
+  // macro 72 should set 0 just in case we need to reuse after power off, etc
+});
+
+$("#call-run-blank-1").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_2.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-safepark").click(function(evt) {
+    fabmo.runSBP('MH,');
+    //pull z up to safe z (clearing indexer)
+    //then move to parking location at rear
 });
 
 $("#call-submitJob").click(function(evt) {
@@ -116,26 +176,6 @@ $("#call-injectJob").click(function(evt) {
   load_SBPfile_injectjob(sbp_file);
 });
 
-$("#call-cutterheight").click(function(evt) {
-    fabmo.runSBP('MH,');
-  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
-  // macro 72 should set 0 just in case we need to reuse after power off, etc
-});
-
-$("#call-safepark").click(function(evt) {
-    fabmo.runSBP('MH,');
-    //pull z up to safe z (clearing indexer)
-    //then move to parking location at rear
-});
-
-$("#call-blanks").click(function(evt) {
-    fabmo.runSBP('MH,');
-    //sequentially step through current frant and back location of blank 1 and 2
-});
-
-$("#call-center").click(function(evt) { // CENTER HERE
-    updateUnits(toCenter);
-});
 
 // Updating Unit Type before Centering Tool
 function updateUnits (callback){
