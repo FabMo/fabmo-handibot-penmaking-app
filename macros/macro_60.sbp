@@ -7,11 +7,11 @@
 
 'Set Working Defaults for First Pen Station -- Hard Coded
 
-'--- Settings ---              ' Initializes permanent variables if not already set
-$z_mandrel_offset = 2.50     ' Current Z Offset Just for Pen Making (tool specific)
-$x_mandrel_offset = 4.25      ' Offset to Centerline of Mandrel (tools specific)
+'--- Settings ---             ' Initializes permanent variables if not already set
+$z_mandrel_offset = 3.50      ' Current Z Offset Just for Pen Making (tool specific)
+$x_mandrel_offset = 4.228     ' Offset to Centerline of Mandrel (tools specific)
 $y_mandrel_front_touch = 1.0  ' Y location for Mandrel Touch-Off (tool specific)
-$z_topMandrel_toCenter = 0.69 ' Z distance from Touch-Off to Centerline (tool specific)    
+$z_topMandrel_toCenter = 0.698' Z distance from Touch-Off to Centerline (tool specific)    
 $y_blank_1_front = 2.00       ' (blank system specific)
 $y_blank_1_back = 4.00        ' (blank system specific)
 $y_blank_2_front = 4.5        ' (blank system specific)
