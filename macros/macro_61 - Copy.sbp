@@ -1,5 +1,7 @@
-' Name: INDEXER: Touch-in-Z
-' Description: Just touch off in Z and stop
+'!FABMO!name: INDEXER: Center-Indexer
+'!FABMO!description: Find center point around shaft
+' Name: INDEXER: Center-Indexer
+' Description: Find center point around shaft
 '   
 ' Platform: Handibot2
 ' Author: Ted Hall
@@ -20,14 +22,34 @@ JS, 3, 3
 
 ' -------- Main Program Section --------
 GOSUB check_input
-GOSUB touch_in_z
+GOSUB find_center
 END
 
 ' --- Subroutines ---
-touch_in_z:    
+find_center:    
                ' Go to plate location
+   'PAUSE "Attach Aligator Clip to Cutter Shank and Swing-Out Target. -Resume- when Ready"
+   &zpos = %(3)
+   &ypos = %(2)
+   &xpos = %(1)
+
+   PX, %(1) + &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &leftLoc = %(1)
+   MX, %(1) - &backoff
+
+   MZ, %(3) + 1
+   MX, %(1) + 2
+   MZ, %(3) - 1
+   PX, %(1) - &SearchDistance, &SearchSpeedSlow, $ContactInput
+   &rightLoc = %(1) 
+   MX, %(1) + &backoff
+
+   MZ, %(3) + 1
+   MX, ((&leftLoc + &rightLoc) / 2)
+
+   
    PZ, %(3) - &SearchDistance, &SearchSpeedSlow, $ContactInput
-   PAUSE "At Z Target!"
+   PAUSE "Centered at a Height!"
    RETURN
 
 
