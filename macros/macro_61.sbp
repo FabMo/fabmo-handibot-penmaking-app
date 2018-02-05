@@ -39,7 +39,7 @@ find_center:
    MX, %(1) + 2
    MZ, %(3) - 1
    PX, %(1) - &SearchDistance, &SearchSpeedSlow, $ContactInput
-   &rightLoc = %(1) 
+   &rightLoc = %(1)
    MX, %(1) + &backoff
 
    MZ, %(3) + 1

@@ -58,7 +58,7 @@ function load_SBPfile_submitjob (file) {
 }
 
 //
-// this should be about right but AWAITING FIXES to submitJog to make OPERATIONAL
+// this should be about right but AWAITING FIXES to submitJob to make OPERATIONAL
 /*function load_SBPfile_injectjob (file) {
 // #3  get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
   var content = "";
@@ -99,10 +99,27 @@ function load_SBPfile_submitjob (file) {
 }
 */
 
-// Load a Macro File
-function InstallMacro (numMacro,type_mac,name,description) {
+// Load Macro Files (sequentially after each completes)
+    // First, get assignments
+    function MacroInst(numMacro,type,name,description) {
+    	this.num = numMacro;
+    	this.typ = type;
+    	this.nam = name;
+    	this.descript = description;
+    }
+    // Then, call one by one as each completes
+    function installNext(nextMacro) {
+       if (nextMacro > lastMacro) {
+       	 console.log("Macro list to install is complete!");
+       	 nextMacro = firstMacro;
+       } else { 
+         InstallMacro(nextMacro);
+       }
+    }
+
+function InstallMacro(numMacro) {
   var sbp_macro = "";
-  var source_folder = type_mac + "/macro_";
+  var source_folder = macro_array[numMacro].typ + "/macro_";
   var source_data = source_folder + numMacro + ".sbp";
   jQuery.get(source_data, function(data) {
       sbp_macro += data;
@@ -112,18 +129,27 @@ function InstallMacro (numMacro,type_mac,name,description) {
       source_data = source_data.replace('.sbp', '');
       var macro = {};
       macro.id = source_data;
-      macro.name = name;
-      macro.description = description;
+      macro.name = macro_array[numMacro].nam;
+      macro.description = macro_array[numMacro].descript;
       macro.content = sbp_macro;
 
     console.log("id: ", macro.id );
     console.log("name: ", macro.name );
+//    console.log("description: ", macro.description );
+//    console.log("id: ", macro.content );
 
       // then, create the macro with id macro.id
     fabmo.updateMacro(macro.id,{},function(err, result) {
      // set the macro fields (name, description,content);
       fabmo.updateMacro(macro.id,{name:macro.name,content:macro.content,description:macro.description}, function(err, result) {
-          fabmo.notify('info', "Macro '" + macro.id + "' saved.");
+          if (err) {
+          	console.log(err);
+          } else {
+            fabmo.notify('info', "Macro '" + macro.id + "' saved.");
+            nextMacro++;
+            installNext(nextMacro);
+            console.log("next=", nextMacro)
+          }
         });
       });
   });
@@ -131,12 +157,21 @@ function InstallMacro (numMacro,type_mac,name,description) {
 
 // Calls for this app --------------------------------------------------------------
 
+  // Macro Install Info
+    var firstMacro = 60;
+    var nextMacro;
+    var lastMacro = 64;
+    var macro_array = [];
+    macro_array[60] = new MacroInst(60,"macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
+    macro_array[61] = new MacroInst(61,"macros","INDEXER: Center-Indexer","Find center point around shaft");
+    macro_array[62] = new MacroInst(62,"macros","Touch-in-Z","Just touch off in Z and stop");
+    macro_array[63] = new MacroInst(63,"macros","Align Mandrel","Check alignment of Mandrel on Indexer");
+    macro_array[64] = new MacroInst(64,"macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
+
 $("#install-pen-macros").click(function(evt) {
-    InstallMacro(60, "macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
-    InstallMacro(61, "macros","INDEXER: Center-Indexer","Find center point around shaft");
-    InstallMacro(62, "macros","Touch-in-Z","Just touch off in Z and stop");
-    InstallMacro(63, "macros","Align Mandrel","Check alignment of Mandrel on Indexer");
-    InstallMacro(64, "macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
+      console.log("called_first");
+      nextMacro = firstMacro;
+      installNext(nextMacro);
 });
 
 $("#call-run-homePen").click(function(evt) {
