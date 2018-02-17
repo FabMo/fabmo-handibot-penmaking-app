@@ -16,25 +16,24 @@
     <div class="container">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="#tab-startpen" role="tab" data-toggle="tab">Pen Maker</a></li>
+        <li class="active"><a href="#tab-startpen" role="tab" data-toggle="tab">QuickStart PenStation</a></li>
+        <li><a class="long" href="#tab-regpen" role="tab" data-toggle="tab">Pen Making</a></li>
         <li><a class="long" href="#tab-details" role="tab" data-toggle="tab">Detail</a></li>
         <li><a id="preference-tab-link" href="#tab-preferences" role="tab" data-toggle="tab">Preferences</a></li>
         <li><a id="config-tab-link" href="#tab-config" role="tab" data-toggle="tab">HELP</a></li>
       </ul>
 
       <div class="tab-content">
-        <!-- Pen Maker/start pane -->
+        <!-- Pen Maker/QuickStart pane -->
         <div class="tab-pane active" id="tab-startpen">
-            <h2 class="long" style="color:darkblue"><strong>PenMaker</strong>
+            <h2 class="long" style="color:darkblue"><strong>Quick Start for Pen Station Package</strong>
                  <div class="pure-u-2 pure-u-md-2-3 pure-u-lg-2-3 image-container">
                   <div class="image-wrapper">
                    <img class='pure-img' src="img/sample-pen-vs.png">
                   </div>
                  </div> 
             </h2>
-
             <p class="long">This App provides special functions for Pen Making using a Rotary Indexer. There are functions for running a Pen Making project as well as for setting up and aligning the tool. You can use the <strong>Short Form</strong> option, below, for a simplified view after you get experience with the functions. The secondary tabs provide more detailed information and preference setting.</p>
-
               <form id="doclength">
                 <label for="long">Full</label>
                 <input type="radio" name="doclength" id="long" value="long" checked="checked">
@@ -44,7 +43,6 @@
               </form>
                 <p> </p>
                 <p> </p>
-            
             <hr class="long" width = "90%" noshade>
             <div>
               <span class="label label-warning"> USE to Start a Pen Making Project</span>
@@ -83,6 +81,68 @@
               <h3><a class="btn btn-success btn-lg" id="install-pen-macros"> Install Pen Making Macros </a> <span class="long"> Install or Re-install Macros for Pen Making Projects and Functions </span></h3>
             </div>  
         </div><!-- start pane -->
+
+        <!-- Pen Maker/Regular pane -->
+        <div class="tab-pane" id="tab-regpen">
+                 <div class="pure-u-2 pure-u-md-2-3 pure-u-lg-2-3 image-container">
+                  <div class="image-wrapper" style="display: inline-block;">
+                   <img class='pure-img' src="img/sample-pen-vs.png">
+            <h2 class="long" style="color:darkblue"><strong>Setting up for Pen Making Projects</strong>
+            </h2>
+                 </div>
+                 </div>
+<div class="container">
+  <img src="img/sample-pen-vs.png" style="width:100%;">
+  <div class="top-left">Top Left</div>
+</div>         
+            <p class="long">This App provides special functions for Pen Making using a Rotary Indexer. There are functions for running a Pen Making project as well as for setting up and aligning the tool. You can use the <strong>Short Form</strong> option, below, for a simplified view after you get experience with the functions. The secondary tabs provide more detailed information and preference setting.</p>
+              <form id="doclength">
+                <label for="long">Full</label>
+                <input type="radio" name="doclength" id="long" value="long" checked="checked">
+                <label>  </label>
+                <label for="short">Short Form</label>
+                <input type="radio" name="doclength" id="short" value="short">
+              </form>
+                <p> </p>
+                <p> </p>
+            <hr class="long" width = "90%" noshade>
+            <div>
+              <span class="label label-warning"> USE to Start a Pen Making Project</span>
+                <p class="long"> </p>
+                <p class="long">You can use this Home-Tool function to set-up your tool for creating pens in the Handibot Pen Station Package. It will also be useful in preparing for pen carving as you get more experienced and develop your own projects. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel, <strong>set the Y location</strong> for the first blank, and <strong>position the tool for setting your cutter to the correct Z height</strong>. The App is set up for the Pen Station Projects, but you can change the positioning for your own projects or production in the Preferences Tab. The Detail Tab describes how the various settings and routines all works.</p>
+              <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span class="long"> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
+                <p class="long">After running Home-Tool, you are ready to run the file for the first blank of your pen project. </p>
+              <h3><a class="btn btn-success" id="call-run-blank-2"> Position for Blank 2 </a><span class="long">  Move to start Position for Second Blank</span></h3>
+                <p class="long">Use Position-for-Blank-2 to Position Cutter for the second blank. </p>
+            </div>
+            <div>
+              <hr class="long" width = "90%" noshade>
+              <hr class="long" width = "90%" noshade>
+              <span class="label label-warning"> OTHER Pen Making Help </span>
+              <h3><a class="btn btn-success" id="call-cutterheight"> Position for Setting New Cutter </a><a class="btn btn-success" id="call-run-blank-1"> Position for Blank 1 </a><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a></h3>
+            </div>  
+            <div>
+              <hr class="long" width = "90%" noshade>
+              <span class="label label-warning"> Maintenance and Alignment </span>
+                <p class="long"> </p>
+                <p class="long"> Your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will automatically check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned. First, remove any fittings or bushings from the mandrel and clamp the tailstock into working location. Then insert the 1/4" alignment rod (solid drill rod) into the router. After the rod is in place, you will need to attach the aligator clips to the mandrel as indicated below. Then use the Keypad to move the drill-rod to the indicated position with the tip about 1/4" below the mandrel. Click the Check Alignment button when you are ready.</p>
+              <div  class="long" class="pure-g">
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 image-container">
+                  <div class="image-wrapper">
+                    <img class='pure-img' id="align-mandrel" src="img/align-mandrel.jpg">
+                  </div>
+                </div>
+              </div>  
+              <h3><a class="btn btn-success btn-lg" id="call-c2"> Check Alignment of Indexer </a> <span class="long"> Check the Horizontal and Vertical Alignment of your Rotary Indexer </span></h3>
+            </div>  
+            <div>
+              <hr class="long" width = "90%" noshade>
+              <hr width = "90%" noshade>
+             <span class="label label-warning"> SPECIALTY FUNCTIONS for Specific Need </span>
+                <p class="long"> </p>
+              <h3><a class="btn btn-success btn-lg" id="install-pen-macros"> Install Pen Making Macros </a> <span class="long"> Install or Re-install Macros for Pen Making Projects and Functions </span></h3>
+            </div>  
+        </div><!-- regular pane -->
 
         <!-- Details Pane -->
         <div class="tab-pane" id="tab-details">
