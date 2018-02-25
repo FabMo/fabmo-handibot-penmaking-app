@@ -26,76 +26,58 @@
       <div class="tab-content">
         <!-- Pen Maker/QuickStart pane -->
         <div class="tab-pane active" id="tab-startpen">
+
             <h2 class="long" style="color:darkblue"><strong>Quick Start for Pen Station Package</strong>
-                 <div class="pure-u-2 pure-u-md-2-3 pure-u-lg-2-3 image-container">
-                  <div class="image-wrapper">
-                   <img class='pure-img' src="img/sample-pen-vs.png">
-                  </div>
-                 </div> 
+                <div class="container">
+                   <img src="img/sample-pen-vs-labeled.png">
+                   <img src="img/twister-labeled.png">
+                   <img src="img/twister-labeled.png">
+                </div>	
             </h2>
-            <p class="long">This App provides special functions for Pen Making using a Rotary Indexer. There are functions for running a Pen Making project as well as for setting up and aligning the tool. You can use the <strong>Short Form</strong> option, below, for a simplified view after you get experience with the functions. The secondary tabs provide more detailed information and preference setting.</p>
-              <form id="doclength">
-                <label for="long">Full</label>
-                <input type="radio" name="doclength" id="long" value="long" checked="checked">
-                <label>  </label>
-                <label for="short">Short Form</label>
-                <input type="radio" name="doclength" id="short" value="short">
-              </form>
+
+            <p>This App provides special functions for Pen Making using a Rotary Indexer. This particular page-tab is a <strong>Quick-Start for those who purchased the full "Pen Station Package" from Handibot</strong>  (making use of the blanks that come preloaded and ready to run in your Accessory Base). The second tab is for General Pen Making projects as well as for setting up to do pen making and aligning the Indexer in the Accessory Base. Additional tabs provide more detailed information and preference setting for your pen-making work.</p>
                 <p> </p>
-                <p> </p>
-            <hr class="long" width = "90%" noshade>
+            <hr width = "90%" noshade>
             <div>
-              <span class="label label-warning"> USE to Start a Pen Making Project</span>
-                <p class="long"> </p>
-                <p class="long">You can use this Home-Tool function to set-up your tool for creating pens in the Handibot Pen Station Package. It will also be useful in preparing for pen carving as you get more experienced and develop your own projects. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel, <strong>set the Y location</strong> for the first blank, and <strong>position the tool for setting your cutter to the correct Z height</strong>. The App is set up for the Pen Station Projects, but you can change the positioning for your own projects or production in the Preferences Tab. The Detail Tab describes how the various settings and routines all works.</p>
-              <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span class="long"> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
-                <p class="long">After running Home-Tool, you are ready to run the file for the first blank of your pen project. </p>
-              <h3><a class="btn btn-success" id="call-run-blank-2"> Position for Blank 2 </a><span class="long">  Move to start Position for Second Blank</span></h3>
-                <p class="long">Use Position-for-Blank-2 to Position Cutter for the second blank. </p>
+              <span class="label label-warning"> Pen Station Users: START a Pen Making Project</span>
+                <p> </p>
+                <p>Use the Home-Tool Button (below) to set-up your tool for creating pens in the Handibot Pen Station Package. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3); then it uses this App's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel and <strong>position the tool for setting your cutter to the correct Z height</strong>. After you've put the router in the mount and positioned the cutter, you'll <strong>set the Y location</strong> for the first blank.</p>
+               	<p>(The App is set up for the Pen Station Projects, but later on you can change the positioning for your own projects in the Preferences Tab.)</p>
+      			<p><strong>* Before Homing, unplug and remove the Router from the router-bracket and set to one side (if you have not already done so).</strong></p>
+              <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
+      			<p><strong>* After Homing, slid the Router into the bracket and gently lower until cutter-tip just touches mandrel head. Tighten into position (bottom screw first), then plug the Router back in.</strong></p>
+      			<p><strong>* You're ready to position tool for cutting the first blank.</strong></p>
+              <h3><a class="btn btn-success" id="call-run-blank-2"> Position for Blank 1 </a><span>  Move to start Position for First Blank</span></h3>
+            <hr width = "90%" noshade>
             </div>
             <div>
-              <hr class="long" width = "90%" noshade>
-              <hr class="long" width = "90%" noshade>
-              <span class="label label-warning"> OTHER Pen Making Help </span>
-              <h3><a class="btn btn-success" id="call-cutterheight"> Position for Setting New Cutter </a><a class="btn btn-success" id="call-run-blank-1"> Position for Blank 1 </a><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a></h3>
-            </div>  
-            <div>
-              <hr class="long" width = "90%" noshade>
-              <span class="label label-warning"> Maintenance and Alignment </span>
-                <p class="long"> </p>
-                <p class="long"> Your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will automatically check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned. First, remove any fittings or bushings from the mandrel and clamp the tailstock into working location. Then insert the 1/4" alignment rod (solid drill rod) into the router. After the rod is in place, you will need to attach the aligator clips to the mandrel as indicated below. Then use the Keypad to move the drill-rod to the indicated position with the tip about 1/4" below the mandrel. Click the Check Alignment button when you are ready.</p>
-              <div  class="long" class="pure-g">
-                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 image-container">
-                  <div class="image-wrapper">
-                    <img class='pure-img' id="align-mandrel" src="img/align-mandrel.jpg">
-                  </div>
-                </div>
-              </div>  
-              <h3><a class="btn btn-success btn-lg" id="call-c2"> Check Alignment of Indexer </a> <span class="long"> Check the Horizontal and Vertical Alignment of your Rotary Indexer </span></h3>
-            </div>  
-            <div>
-              <hr class="long" width = "90%" noshade>
-              <hr width = "90%" noshade>
-             <span class="label label-warning"> SPECIALTY FUNCTIONS for Specific Need </span>
-                <p class="long"> </p>
-              <h3><a class="btn btn-success btn-lg" id="install-pen-macros"> Install Pen Making Macros </a> <span class="long"> Install or Re-install Macros for Pen Making Projects and Functions </span></h3>
+              <span class="label label-warning"> CUT the Project </span>
+                <p class="long">After homing, you are ready to run your project, starting with the first blank. </p>
+      			<p><strong>* Now, SELECT your Project to start Pen Making!.</strong></p>
+              <h3><a class="btn btn-success" id="call-cutterheight"> Patriot Pen Project </a><a class="btn btn-success" id="call-run-blank-1"> Twister Project </a><a class="btn btn-success" id="call-safepark"> Monogram Project (sample lettering; see documentation)</a> The PROJECTS </h3>
+      			<p><strong>* Great. If all went well, you've finished machining your Pen Station Project.</strong></p>
+            <hr width = "90%" noshade>
+              <span class="label label-warning"> SIMPLE Finishing </span>
+                <p> You're ready to do a little simple finishing.</p>
+                <p> Release the clamps and pull the indexer board out to the ## stop so you will be able to conveniently apply Aussi Oil while spinning the the newly machined parts. Use a soft rag, start with a tablespoon of oil and apply over the spinning parts. Then apply more!</p>
+      			<p><strong>* Click the next button to spin the indexer while you apply the finish. It will automatically spin about 50,000 degrees and back (3 minutes). Click again for more spinning ...</strong></p>
+              <h3><a class="btn btn-success" id="call-spin-indexer"> Spin Indexer </a></h3>
+      			<p><strong>* Congratulations! You've finished making a Pen Station Project.</strong></p>
+                <p> The imagination is the limit as you begin to explore your creative opportunities in pen making.</p>
+            <hr width = "90%" noshade>
+            <hr width = "90%" noshade>
             </div>  
         </div><!-- start pane -->
 
+
         <!-- Pen Maker/Regular pane -->
         <div class="tab-pane" id="tab-regpen">
-                 <div class="pure-u-2 pure-u-md-2-3 pure-u-lg-2-3 image-container">
-                  <div class="image-wrapper" style="display: inline-block;">
-                   <img class='pure-img' src="img/sample-pen-vs.png">
             <h2 class="long" style="color:darkblue"><strong>Setting up for Pen Making Projects</strong>
+                <div class="container-fluid">
+                   <img width="90%" src="img/three-bill.jpg">
+                </div>	
             </h2>
-                 </div>
-                 </div>
-<div class="container">
-  <img src="img/sample-pen-vs.png" style="width:100%;">
-  <div class="top-left">Top Left</div>
-</div>         
-            <p class="long">This App provides special functions for Pen Making using a Rotary Indexer. There are functions for running a Pen Making project as well as for setting up and aligning the tool. You can use the <strong>Short Form</strong> option, below, for a simplified view after you get experience with the functions. The secondary tabs provide more detailed information and preference setting.</p>
+            <p class="long">This page provides general purpose setup and housekeeping functions for Pen-Making Projects. These will help with alignment and positioning your Handibot for pen-making. You can use the <strong>Short Form</strong> option (radio-button, below) for simplified access after you get experience with these functions.</p>
               <form id="doclength">
                 <label for="long">Full</label>
                 <input type="radio" name="doclength" id="long" value="long" checked="checked">
@@ -107,25 +89,31 @@
                 <p> </p>
             <hr class="long" width = "90%" noshade>
             <div>
-              <span class="label label-warning"> USE to Start a Pen Making Project</span>
+              <span class="label label-warning"> Start a Pen Making Project</span>
                 <p class="long"> </p>
-                <p class="long">You can use this Home-Tool function to set-up your tool for creating pens in the Handibot Pen Station Package. It will also be useful in preparing for pen carving as you get more experienced and develop your own projects. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel, <strong>set the Y location</strong> for the first blank, and <strong>position the tool for setting your cutter to the correct Z height</strong>. The App is set up for the Pen Station Projects, but you can change the positioning for your own projects or production in the Preferences Tab. The Detail Tab describes how the various settings and routines all works.</p>
-              <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span class="long"> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
-                <p class="long">After running Home-Tool, you are ready to run the file for the first blank of your pen project. </p>
+                <p class="long">Home the tool to start a pen-making project. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3) and then it will use the tool's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel and <strong>position the tool for setting your cutter to the correct Z height</strong>.</p> 
+                <p>This function assumes that you have used the Indexer Alignment tool, below, and that you have already installed the Macros for Pen-Making projects. Further, you can change the default positioning for these routines in the Preferences Tab. The Detail Tab describes how the various settings and routines all work together.</p>
+      			<p><strong>* Before Homing, unplug and remove the Router from the router-bracket and set to one side (if you have not already done so).</strong></p>
+              <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
+      			<p><strong>* After Homing, slid the Router into the bracket and gently lower until cutter-tip just touches mandrel head. Tighten into position (bottom screw first), then plug the Router back in.</strong></p>
+      			<p><strong>* You're ready to position tool for cutting the first blank.</strong></p>
+              <h3><a class="btn btn-success" id="call-run-blank-2"> Position for Blank 1 </a><span>  Move to start Position for First Blank</span></h3>
+                <p class="long">The next button will take you to the default start position for the second blank. You will use this for cases where the toolpath files for the two blanks are separate</p>
               <h3><a class="btn btn-success" id="call-run-blank-2"> Position for Blank 2 </a><span class="long">  Move to start Position for Second Blank</span></h3>
-                <p class="long">Use Position-for-Blank-2 to Position Cutter for the second blank. </p>
             </div>
             <div>
               <hr class="long" width = "90%" noshade>
               <hr class="long" width = "90%" noshade>
               <span class="label label-warning"> OTHER Pen Making Help </span>
-              <h3><a class="btn btn-success" id="call-cutterheight"> Position for Setting New Cutter </a><a class="btn btn-success" id="call-run-blank-1"> Position for Blank 1 </a><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a></h3>
+              <h3><a class="btn btn-success" id="call-cutterheight"> Position for Setting New Cutter </a><span class="long"> Positon Over Headstock to Set Cutter Z-Height</span></h3>
+              <h3><a class="btn btn-success" id="call-safepark"> Move to SAFE Parking </a><span class="long"> Make sure Cutter is Clear of Indexer</span></h3>
             </div>  
             <div>
               <hr class="long" width = "90%" noshade>
-              <span class="label label-warning"> Maintenance and Alignment </span>
+              <span class="label label-warning"> Indexer Alignment </span>
                 <p class="long"> </p>
-                <p class="long"> Your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will automatically check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned. First, remove any fittings or bushings from the mandrel and clamp the tailstock into working location. Then insert the 1/4" alignment rod (solid drill rod) into the router. After the rod is in place, you will need to attach the aligator clips to the mandrel as indicated below. Then use the Keypad to move the drill-rod to the indicated position with the tip about 1/4" below the mandrel. Click the Check Alignment button when you are ready.</p>
+                <p class="long"> You may be just setting up an Indexer for Pen Making, your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned.</p>
+                <p>Before starting this routine, remove any fittings or bushings from the mandrel. Clamp the tailstock into working location. Then insert 1/4" alignment rod (solid drill rod) into the router. After the rod is in place, you will need to attach the aligator clips to the mandrel as indicated below. Then, use the Keypad to move the drill-rod to the indicated position with the tip about 1/4" below the mandrel. Now, click the Check Alignment button when you are ready.</p>
               <div  class="long" class="pure-g">
                 <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 image-container">
                   <div class="image-wrapper">
@@ -134,6 +122,9 @@
                 </div>
               </div>  
               <h3><a class="btn btn-success btn-lg" id="call-c2"> Check Alignment of Indexer </a> <span class="long"> Check the Horizontal and Vertical Alignment of your Rotary Indexer </span></h3>
+              <p>If you are happy with the alignment, you can use the next button to update the settings for the position of the mandrel. These are the settings that determine how the homing and cutter positioning routines will work. These values can be inspected and entered manually in the Preferences tab.</p>
+              <h3><a class="btn btn-success" id="call-cutterheight"> Record Offset Values from Alignment </a><span class="long"> Update the Positioning Information for Your Mandrel for Use in these Routines</span></h3>
+
             </div>  
             <div>
               <hr class="long" width = "90%" noshade>
@@ -147,11 +138,12 @@
         <!-- Details Pane -->
         <div class="tab-pane" id="tab-details">
             <h2>Detailed Info on this App and Pen-Making Macros</h2>
-            <p>This App is intended to help make the pen-making projects of Handibot's "Pen Station" easy to get started with. Additionally, you'll be able to modify settings and variables here so that you can continue to use much of the functionality with other pen projects of for automating your own pen production work. You don't really need any of these tools for using the indexer or making pens, but we think they help make some of the routine work or aligning, setting up the tool, and positioning during pen carving more straightforward.</p>
-            <p>The general strategy is to provide tools that help with aligning the indexer, or checking alignment, and then provide tools that help put the appropriate location "offsets" in place (moving the working zero locations) for running pen-carving files. First, we'll assume the tool and indexer are set up correctly and just discuss the normal flow of work to do one of the pen projects.</p>
-            <p>The actions done for pen making will make a lot more sense if you've familiarized yourself with the operation of your Handibot. Take the "Tour", run the test file, and maybe try a few things with the tool before you set it up on your accessory base to start pen making.</p>
+            <p>This App is intended to help make the pen-making projects of Handibot's "Pen Station" easy to get started with. Additionally, you'll be able to modify settings and variables here so that you can continue to use much of the functionality with other pen projects of for automating your own pen production work. You don't really need any of these tools for using the indexer or making pens, but we think they help make some of the routine work such as aligning, setting up the tool, and positioning during pen carving more straightforward. And, they provide programming examples if you want to set up any of this kind of App yourself.</p>
+            <p>The general strategy is to provide tools that help with aligning the indexer, or checking alignment, and then provide tools that help put the appropriate location "offsets" in place (moving the working zero locations) for running pen-carving files.</p>
+            <p>If you are new to Handibotting, the action of pen making will make a lot more sense if you've first familiarized yourself with the operation of your Handibot. Take the "Tour", get used to the controls, run the test file, and maybe try a few things with the tool before you set it up on your accessory base to start pen-making projects.</p>
+
             <h3>Home Tool for Pen Work</h3>
-            	<p>Homing the Tool is the first thing that you will usually want to do after powering your tool up. With pen making and the special "Homing" function in this App, the tool will first home in the normal fashion (using Macro#3) then, it will use the stored offsets for pen making to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero, but uses temporary offsets from it to position over blanks. This system makes it possible to return to your exact position is a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). As you saw in the initial work with Handibot, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
+            For this discussion, we'll assume the tool and indexer are set up correctly so we can first the normal work flow of work for pen projects. "Homing" is always the starting point. The tool will first home in the normal fashion (using Macro#3) then, it will use the stored offsets for pen making to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero, but uses temporary offsets from it to position over blanks. This system makes it possible to return to your exact position is a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). As you saw in the initial work with Handibot, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
             	
 
               <p>The back-off distance that is used in this function set at the factory and saved as a persistant variable. As you get more experienced, you may want to change the back-off distance in order to move your zero locations to better suit your work, for a particular project, or just to make a slight adjustment of your zero location. You can modify the back-off distance for each axis in the <code>Preferences</code> tab (above).</p>
