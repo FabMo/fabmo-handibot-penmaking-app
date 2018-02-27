@@ -1,0 +1,13 @@
+' Name: INDEXER: Spin Indexer
+' Description: Spin Cutter to Do Finishing
+'   
+' Platform: Handibot2
+' Author: Ted Hall
+' History:
+'   2017/12/18 - Initial version (th)
+
+JB, 50000
+Sleep 1
+JB, 0
+
+END

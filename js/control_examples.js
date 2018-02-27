@@ -50,3 +50,22 @@ fabmo.on('status', function(status) {
 });
 
 fabmo.requestStatus();
+
+
+// Illustration of other FabMo function calls ... fyi
+
+$("#dash-info").click(function(evt) {
+  fabmo.notify('info', 'Heads Up!');
+});
+$("#dash-success").click(function(evt) {
+  fabmo.notify('success', 'Great Job!');
+});
+$("#dash-warning").click(function(evt) {
+  fabmo.notify('warning', 'Uh Oh!');
+});
+$("#dash-error").click(function(evt) {
+  fabmo.notify('error', 'Epic Fail!');
+});
+$("#dash-launch-job-manager").click(function(evt) {
+  fabmo.launchApp('job-manager');
+});

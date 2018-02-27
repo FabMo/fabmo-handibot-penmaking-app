@@ -25,7 +25,7 @@ function updateConsolidation() {
 // 3 Methods for Running SBP Files ------------------------------------------------ 
 
 function load_SBPfile_run (file) {
-// #1  get json string of sbp part file and DIRECT run (no job history)
+// #1  get json string of sbp part file and DIRECT run (not leaving app?; no job history)
   var content = "";
   jQuery.get(file, function(data) {
       content += data;
@@ -38,7 +38,7 @@ function load_SBPfile_run (file) {
 }
 
 function load_SBPfile_submitjob (file) {
-// #2  get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+// #2  get json string of sbp part file and run NORMALLY (Queued) FROM JOB MANAGER (leaving app)
   var content = "";
   jQuery.get(file, function(data) {
       content += data;
@@ -60,7 +60,7 @@ function load_SBPfile_submitjob (file) {
 //
 // this should be about right but AWAITING FIXES to submitJob to make OPERATIONAL
 /*function load_SBPfile_injectjob (file) {
-// #3  get json string of sbp part file and run NORMALLY FROM JOB MANAGER (leaving app)
+// #3  get json string of sbp part file and run FROM JOB MANAGER (w/o queue) (leaving app)
   var content = "";
   jQuery.get(file, function(data) {
       content += data;
@@ -160,13 +160,14 @@ function InstallMacro(numMacro) {
   // Macro Install Info
     var firstMacro = 60;
     var nextMacro;
-    var lastMacro = 64;
+    var lastMacro = 65;
     var macro_array = [];
     macro_array[60] = new MacroInst(60,"macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
     macro_array[61] = new MacroInst(61,"macros","INDEXER: Center-Indexer","Find center point around shaft");
     macro_array[62] = new MacroInst(62,"macros","Touch-in-Z","Just touch off in Z and stop");
     macro_array[63] = new MacroInst(63,"macros","Align Mandrel","Check alignment of Mandrel on Indexer");
     macro_array[64] = new MacroInst(64,"macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
+    macro_array[65] = new MacroInst(65,"macros","INDEXER: Spin","Spin Cutter to do Finishing");
 
 $("#install-pen-macros").click(function(evt) {
       console.log("called_first");
@@ -175,7 +176,14 @@ $("#install-pen-macros").click(function(evt) {
 });
 
 $("#call-run-homePen").click(function(evt) {
-  var sbp_file = "jobs/home_pen_blank_1.sbp";
+  var sbp_file1 = "jobs/home_pen.sbp";
+  var sbp_file2 = "jobs/pen_blank_1.sbp";
+  load_SBPfile_run(sbp_file1);
+//  load_SBPfile_run(sbp_file2);
+});
+
+$("#call-run-blank-1").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_1.sbp";
   load_SBPfile_run(sbp_file);
 });
 
@@ -190,9 +198,8 @@ $("#call-cutterheight").click(function(evt) {
   // macro 72 should set 0 just in case we need to reuse after power off, etc
 });
 
-$("#call-run-blank-1").click(function(evt) {
-  var sbp_file = "jobs/pen_blank_2.sbp";
-  load_SBPfile_run(sbp_file);
+$("#call-spin-indexer").click(function(evt) {
+  fabmo.runSBP('C#,65');
 });
 
 $("#call-safepark").click(function(evt) {
@@ -200,6 +207,8 @@ $("#call-safepark").click(function(evt) {
     //pull z up to safe z (clearing indexer)
     //then move to parking location at rear
 });
+
+
 
 $("#call-submitJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
@@ -210,6 +219,7 @@ $("#call-injectJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   load_SBPfile_injectjob(sbp_file);
 });
+
 
 
 // Updating Unit Type before Centering Tool
@@ -229,20 +239,3 @@ console.log("units2: " + curUnits);
     }
 }
 
-// Illustration of other FabMo function calls ... fyi
-
-$("#dash-info").click(function(evt) {
-  fabmo.notify('info', 'Heads Up!');
-});
-$("#dash-success").click(function(evt) {
-  fabmo.notify('success', 'Great Job!');
-});
-$("#dash-warning").click(function(evt) {
-  fabmo.notify('warning', 'Uh Oh!');
-});
-$("#dash-error").click(function(evt) {
-  fabmo.notify('error', 'Epic Fail!');
-});
-$("#dash-launch-job-manager").click(function(evt) {
-  fabmo.launchApp('job-manager');
-});

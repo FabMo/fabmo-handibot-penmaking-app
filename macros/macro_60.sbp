@@ -4,14 +4,16 @@
 ' Platform: Handibot2
 
 'Set Working Defaults for First Pen Station -- Hard Coded
+'  Note: Use this macro to set all values back to default, or to your modified (by editing here) values.
+'        These values can be modified in the Preferences Tab of the Pen Making App, but they are not saved here.
 
 '--- Settings ---             ' Initializes permanent variables if not already set
-$z_mandrel_offset = 3.50      ' Current Z Offset Just for Pen Making (tool specific)
-$x_mandrel_offset = 4.228     ' Offset to Centerline of Mandrel (tools specific)
-$y_mandrel_front_touch = 1.0  ' Y location for Mandrel Touch-Off (tool specific)
-$z_topMandrel_toCenter = 0.698' Z distance from Touch-Off to Centerline (tool specific)    
-$y_blank_1_front = 2.00       ' (blank system specific)
-$y_blank_1_back = 4.00        ' (blank system specific)
-$y_blank_2_front = 4.5        ' (blank system specific)
-$y_blank_2_back = 6.5         ' (blank system specific)
-$file_Y_coordinates = -1.024  ' Definition of current location relative to Pen Toolpath File (project system specific)
+$z_mandrel_offset = 3.50      ' [3.50] Current Z Offset Just for Pen Making (tool specific)
+$x_mandrel_offset = 4.228     ' [4.228] Offset to Centerline of Mandrel (tools specific)
+$y_mandrel_front_touch = 1.0  ' [1.0] Y location for Mandrel Touch-Off (tool specific)
+$z_topMandrel_toCenter = 0.698' [.698] Z distance from Touch-Off to Centerline (tool specific)    
+$y_blank_1_front = 2.00       ' [2.00](blank, pen system specific)
+$y_blank_1_back = 4.00        ' [4.00](blank, pen system specific)
+$y_blank_2_front = 4.50       ' [4.50](blank, pen system specific)
+$y_blank_2_back = 6.50        ' [6.50](blank, pen system specific)
+$file_Y_coordinates = -1.024  ' [-1.024] Definition of current location relative to Pen Toolpath File (project system specific)

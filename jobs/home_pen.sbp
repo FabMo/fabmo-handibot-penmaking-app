@@ -1,6 +1,5 @@
 '----------------------------------------------------------------
-'SHOPBOT ROUTER FILE IN INCHES For Setting Up Pen Carving
-'
+' th 12/15/2017
 
 SU,0                           ' Set to Inches; Units will auto-revert to current starting units at end of file
 
@@ -10,35 +9,26 @@ MS, 2,1  				       ' Speeds will auto-revert back to current values at end of f
 JS, 3,2                        ' (But not that cutting speeds in file will over-ride these app settings
 
 'Home Tool
+$current_cutter_Zoffset = .25  ' Initializes Z offset to default as starting point
 C#,3                           ' Home tool and work relative to these offsets ...
 
 MX, $x_mandrel_offset          ' Move to correct X center  
 ZX                             ' ... and Zero
 MY, $y_mandrel_front_touch     ' Move over mandrel
-VA, ,,,,,,,,$z_mandrel_offset  ' Set Current Z in terms of Mandrel Centerline
 
-' Remove Router and RESUME
+' Unplug and Remove Router and RESUME
 PAUSE
 MZ, $z_topMandrel_toCenter     ' Z position for cutter touching Mandrel
+VA, ,,,,,,,,$z_mandrel_offset  ' Set Current Z Table Base in terms of Mandrel Centerline
 
-' Install Cutter and Lower Router to JUST TOUCH MANDREL HEAD; TIGHTEN, PLUG-IN then RESUME
+' Install Cutter and Lower Router so Cutter JUST TOUCHES MANDREL HEAD; TIGHTEN, PLUG-IN, then RESUME
 PAUSE
 
-' Position for Start
+' Position for Next Action
 MZ, 1
-MY, $y_blank_1_front
-MZ, 0.4                        ' Cutter should be just above start point for first blank
-
-' If Location looks correct, hit RESUME to Set File Coordinates; Blanks should be positioned with surface flat
-PAUSE
-VA, ,$file_Y_coordinates       ' Set for this blank
-MZ, 0.5                        ' Confirming move ...
-
-' Tool is Now Ready to run First Blank in Project (make sure Router is Plugged-In and On)!
-PAUSE
-
 
 END
+
 
 ' --- Subroutines ---
 Check_for_Pen_Settings:
@@ -52,10 +42,12 @@ $z_topMandrel_toCenter := "not assigned"
   IF $z_topMandrel_toCenter = "not assigned" THEN GOTO Missing_Value
 $y_blank_1_front := "not assigned"
   IF $y_blank_1_front = "not assigned" THEN GOTO Missing_Value
+$y_blank_1_front := "not assigned"
+  IF $y_blank_2_front = "not assigned" THEN GOTO Missing_Value
 RETURN
 
 Missing_Value:
-PAUSE "One or more Pen-Making Variable have not been defined. Use the Tool Set-Up functions here to create variables. See Details tab for more Info."
+PAUSE "One or more Pen-Making Variable have not been defined. Use the Tool Set-Up functions here or Macro 65 to create variables. See Details tab for more Info."
 END
  
 
