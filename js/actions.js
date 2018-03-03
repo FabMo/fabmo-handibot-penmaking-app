@@ -179,7 +179,7 @@ $("#call-run-homePen").click(function(evt) {
   var sbp_file1 = "jobs/home_pen.sbp";
   var sbp_file2 = "jobs/pen_blank_1.sbp";
   load_SBPfile_run(sbp_file1);
-//  load_SBPfile_run(sbp_file2);
+//  load_SBPfile_run(sbp_file2); // !! Can't run two sequentially without callback
 });
 
 $("#call-run-blank-1").click(function(evt) {
@@ -203,7 +203,7 @@ $("#call-spin-indexer").click(function(evt) {
 });
 
 $("#call-safepark").click(function(evt) {
-    fabmo.runSBP('MH,');
+    fabmo.runSBP('MH');
     //pull z up to safe z (clearing indexer)
     //then move to parking location at rear
 });
@@ -239,3 +239,27 @@ console.log("units2: " + curUnits);
     }
 }
 
+
+// VALIDATIONS ..............................................................
+// Trigger a validation every time an input value changes
+$(".num-input").change(function(evt) {
+    validateInput($(evt.target));
+    //saveNew;
+});
+
+// Validate the input of the provided form (just checks for a valid number, no range check)
+// Mark the input as invalid if it contains bad data
+// Return the value if it's valid, null otherwise
+function validateInput(target) {
+  var f = parseFloat(target.val());
+console.log ("yep, just validated!", f)
+  if(isNaN(f) || f === undefined) {
+      target.parent().removeClass('has-success');
+      target.parent().addClass('has-error');
+      return null;
+  } else {
+      target.parent().removeClass('has-error');
+      target.parent().addClass('has-success');
+      return f;
+  }
+}

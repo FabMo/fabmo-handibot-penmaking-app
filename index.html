@@ -19,7 +19,7 @@
         <li class="long" class="active"><a href="#tab-startpen" role="tab" data-toggle="tab">QuickStart PenStation</a></li>
         <li><a href="#tab-regpen" role="tab" data-toggle="tab">Pen Making</a></li>
         <li><a href="#tab-details" role="tab" data-toggle="tab">Detail</a></li>
-        <li><a href="#tab-preferences" role="tab" data-toggle="tab">Preferences</a></li>
+        <li><a href="#tab-preferences" id="tab-preferences-link" role="tab" data-toggle="tab">Preferences</a></li>
       </ul>
 
       <div class="tab-content">
@@ -44,11 +44,12 @@
                 <p>Use the Home-Tool Button (below) to set up your tool for creating pens in the Handibot Pen Station Package. The function will automatically <strong>Home</strong> your Handibot using the normal homing routine (Macro 3); then it uses this App's pen-making offsets to <strong>center the X axis</strong> over the pen mandrel and <strong>position the tool for setting your cutter to the correct Z height</strong>. After you've put the router in the mount and positioned the cutter, you'll <strong>set the Y location</strong> for the first blank.</p>
                	<p>(The App is set up for the Pen Station Projects, but later on you can change the positioning for your own projects in the Preferences Tab.)</p>
       			<p><strong>* Before Homing, unplug and remove the Router from the router-bracket and set to one side (if you have not already done so).</strong></p>
+      			<p><strong> In all of the following procedures, Click "Resume" to continue to the next step, unless you need to Quit from the procedure.</strong></p>
 
               <h3><a class="btn btn-success btn-lg" id="call-run-homePen"> HOME TOOL for PENS </a> <span> Set the Home Location for X, Y, and Z Axes for Pen Carving</span></h3>
 
       			<p><strong>* After Homing, slid the Router into the bracket and gently lower until cutter-tip just touches mandrel head. Tighten into position (bottom screw first), then plug the Router back in.</strong></p>
-      			<p><strong>* You're ready to position tool for cutting the first blank.</strong></p>
+      			<p><strong> You're ready to position tool for cutting the first blank.</strong></p>
 
               <h3><a class="btn btn-success" id="call-run-blank-1"> Position for Blank 1 </a><span>  Move to start Position for First Blank</span></h3>
 
@@ -57,12 +58,12 @@
             <div>
               <span class="label label-warning"> CUT the Project </span>
                 <p class="long">After homing, you are ready to run your project, starting with the first blank. </p>
-      			<p><strong>* Now, SELECT your Project to start Pen Making!.</strong></p>
+      			<p><strong> Now, SELECT your Project to start Pen Making!.</strong></p>
 
               <h3> The PROJECTS </h3>
               <h3><a class="btn btn-success" id="call-patriot"> Patriot Pen Project </a><a class="btn btn-success" id="call-twister"> Twister Project </a><a class="btn btn-success" id="call-monogram"> Monogram Project (sample lettering; see documentation)</a></h3>
 
-      			<p><strong>* Great. If all went well, you've machined your Pen Station Project.</strong></p>
+      			<p><strong> Great. If all went well, you've machined your Pen Station Project.</strong></p>
             <hr width = "90%" noshade>
               <span class="label label-warning"> SIMPLE Finishing </span>
                 <p> You're ready to do a little simple finishing.</p>
@@ -151,10 +152,12 @@
         <div class="tab-pane" id="tab-details">
             <h2>Detailed Info on this App and Pen-Making Macros</h2>
             <p>This App is intended to help make the pen-making projects of Handibot's "Pen Station" easy to get started with. Additionally, you'll be able to modify settings and variables here so that you can continue to use much of the functionality with other pen projects of for automating your own pen production work. You don't really need any of these tools for using the indexer or making pens, but we think they help make some of the routine work such as aligning, setting up the tool, and positioning during pen carving more straightforward. And, they provide programming examples if you want to set up this kind of App for yourself.</p>
+
+            <h2>Getting the Tool Aligned and Determining Offsets</h2>
             <p>The general strategy is to provide tools that help with aligning the indexer, or checking alignment, and then provide tools that help put the appropriate location "offsets" in place (moving the working zero locations) for running pen-carving files -- once set up, you can just turn your Handibot on, run the pen-making homing routine, and you are ready to cut.</p>
             
-            <h3>Home Tool for Pen Work</h3>
-            For this discussion, we'll assume the tool and indexer are set up correctly so we can first the normal work flow of work for pen projects. "Homing" is always the starting point. The tool will first home in the normal fashion (using Macro 3). Then, it will use the stored offsets for pen making to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero, but uses temporary offsets from it to position the cutter over blanks. This system makes it possible to return to your exact position in a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). As you saw in the initial work with Handibot, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
+            <h3>Homing Tool for Pen Work</h3>
+            The primary function for normal pen-making work flow is "Homing". Homing is always the starting point. The tool will first home in the normal fashion (using Macro 3). Then, it will use the stored offsets for pen making (created in the previous step) to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero from the initial zeroing, but uses temporary offsets from it to position the cutter over blanks. This system gets you in position for accurate pen-making and makes it possible to return to your exact position in a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). And just a note, as you became aware in your initial Handibot Quick Start, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
 
             <div>
               <hr class="long" width = "90%" noshade>
@@ -168,58 +171,92 @@
           <h2>Preference Settings for Pen Turning</h2>
 	          <p>This page allows you to monitor and edit the special variables used for Pen Turning. The initial/default values are for the use with the Projects that come with the Pen Station Package from Handibot and should be correct for your Handibot if it was set up at the factory. If you have set up your own indexer for pen making, you will need to use the alignment functions on the "Pen Making" page to correctly set your variables.</p>
 	          <p>Variable preferences are saved using a system of "persistent variables". That is, they will be remembered even when you turn off your tool and turn it back on. The default values for these variables are saved in Macro 60 and can be restored to their original values by running Macro 60.</p> 
-	          <p>Make sure to hit the SAVE button after editing these variables.</p>
+	          <p>Make sure to hit the <strong> SAVE </strong> button after editing any these variables.</p>
+
+	                <div class="form-group">
+	                  <div class="col-sm-12 has-success" style="text-align: right;">
+	                    <a class="btn btn-success btn-lg" id="pref-save">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
+	                  </div>
+	                </div>
 
        	    <!-- Responsive form for inputting preferences -->
 	        <div class="row">
 	             <div class="col-sm-7" style="margin-left: auto; margin-right: auto; text-align: left; ">
 	              <form class="form-horizontal" id="form-jobs">
-	              <h4>Variables for Setting X, Y and Z Zeroing Back-Off Distances </h4>
-	              <p>These variables are used to set the distance for backoff from proximity switches or end stops. </p>
+	              <h4>Key Variables for Pen Making </h4>
+	              <p>These variables are used to set the X-axis location of the mandrel and the offset to the cutter tip, as well as the position for setting the cutter. </p>
 	                <div class="form-group">
-	                  <label for="pref-input-xpullback" class="col-sm-3 control-label">x_backoff</label>
+	                  <label for="pref-input-x-mandrel-offset" class="col-sm-3 control-label">x_mandrel_offset</label>
 	                  <div class="col-sm-9">
 	                    <div class="input-group has-success">
-	                      <input class="form-control num-input" id="pref-input-x-pull" value=".075">
+	                      <input class="form-control num-input" id="pref-input-x-mandrel-offset" value="4.00">
 	                      <span class="input-group-addon">in</span>
 	                    </div>
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label for="pref-input-ypullback" class="col-sm-3 control-label">y_backoff</label>
+	                  <label for="pref-input-z-mandrel-offset" class="col-sm-3 control-label">z_mandrel_offset</label>
 	                  <div class="col-sm-9">
 	                    <div class="input-group has-success">
-	                      <input class="form-control num-input" id="pref-input-y-pull" value=".075">
+	                      <input class="form-control num-input" id="pref-input-z-mandrel-offset" value="3.50">
 	                      <span class="input-group-addon">in</span>
 	                    </div>
 	                  </div>
 	                </div>
                   <div class="form-group">
-                    <label for="pref-input-ypullback" class="col-sm-3 control-label">z_backoff</label>
+                    <label for="pref-input-ypullback" class="col-sm-3 control-label">y_mandrel_front_touch</label>
                     <div class="col-sm-9">
                       <div class="input-group has-success">
-                        <input class="form-control num-input" id="pref-input-z-pull" value=".075">
+                        <input class="form-control num-input" id="pref-input-y-mandrel-front-touch" value="-2.00">
                         <span class="input-group-addon">in</span>
                       </div>
                     </div>
                   </div>
-	              <h4>Variables for Setting Z-Zero </h4>
-	              <p>Variable used to set Z-Zero Offset by cutter length (Macro 2 or C2). </p>
+	              <h4>Other Settings for Pen Making (not set by alignment functions) </h4>
+	              <p>Z distance from Touch-Off to Centerline (tool specific). </p>
 	                  <div class="form-group">
-	                  <label for="job-input-zlength" class="col-sm-3 control-label">Cutter Length</label>
+	                  <label for="job-input-zlength" class="col-sm-3 control-label">z_topMandrel_toCenter</label>
 	                  <div class="col-sm-9">
 	                    <div class="input-group has-success">
-	                      <input class="form-control num-input" id="pref-input-cur-zlength" value=".25">
+	                      <input class="form-control num-input" id="pref-input-z-topmandrel-tocenter" value=".70">
 	                      <span class="input-group-addon">in</span>
 	                    </div>
 	                  </div>
 	                </div>
-                <p>Variable used to set Z-Zero Plate Thickness/Height (Macro 2 or C2; and Macro 77). </p>
+                <p> </p>
+                <p>Variable used to Position for First and Second Blanks on Mandrel. </p>
 	                <div class="form-group">
-	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">Zero Plate Thickness</label>
+	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">y_blank_1_front</label>
 	                  <div class="col-sm-9">
 	                    <div class="input-group has-success">
-	                      <input class="form-control num-input" id="pref-input-plate-offset" value=".75">
+	                      <input class="form-control num-input" id="pref-input-y-blank-1-front" value="2.00">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">y_blank_1_back</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-y-blank-1-back" value="4.00">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">y_blank_2_front</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-y-blank-2-front" value="4.50">
+	                      <span class="input-group-addon">in</span>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <label for="job-input-zto-surf" class="col-sm-3 control-label">y_blank_1_back</label>
+	                  <div class="col-sm-9">
+	                    <div class="input-group has-success">
+	                      <input class="form-control num-input" id="pref-input-y-blank-1-back" value="6.50">
 	                      <span class="input-group-addon">in</span>
 	                    </div>
 	                  </div>
@@ -281,9 +318,9 @@
     <script src="js/actions.js"></script>
 
     <script type="text/javascript">
-        // Prevent a stray enter key from inadvertently submitting a form (and setting the tool in motion!)
         $(document).ready(function() {
-          fabmo.getAppConfig(function(err,config){
+           // Initially set Length short or long
+              fabmo.getAppConfig(function(err,config){
               var doclength = config.doclength || "long";
               that = doclength;
               if(that==='short') {
@@ -293,16 +330,19 @@
                 $('#long').prop("checked", true);
               }
               updateConsolidation();
+  
+           // Update Length
+            $('#doclength').change(function(){
+                that = $('input[name="doclength"]:checked').val();
+                updateConsolidation();
+              });
+           // Prevent a stray enter key from inadvertently submitting a form (and setting the tool in motion!)
             $(window).keydown(function(event){
               if(event.keyCode == 13) {
                 event.preventDefault();
                 return false;
               }
             });
-            $('#doclength').change(function(){
-                that = $('input[name="doclength"]:checked').val();
-                updateConsolidation();
-              });
           });
         });
     </script>

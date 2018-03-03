@@ -21,26 +21,6 @@ $("#nav-go").click(function(evt) {
   evt.preventDefault();
 });
 
-// Validate the input of the provided form (just checks for a valid number, no range check)
-// Mark the input as invalid if it contains bad data
-// Return the value if it's valid, null otherwise
-function validateInput(target) {
-  var f = parseFloat(target.val());
-  if(isNaN(f) || f === undefined) {
-      target.parent().removeClass('has-success');
-      target.parent().addClass('has-error');
-      return null;
-  } else {
-      target.parent().removeClass('has-error');
-      target.parent().addClass('has-success');
-      return f;
-  }
-}
-
-// Trigger a validation every time an input value changes
-$(".num-input").change(function(evt) {
-    validateInput($(evt.target));
-});
 
 // Update the position display every time a status report is recieved
 fabmo.on('status', function(status) {
