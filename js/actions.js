@@ -6,9 +6,78 @@
 *
 */
 
-// Notes ...
+// Calls for this app --------------------------------------------------------------
 
-// General Functions --------------------------------------------------------------
+  // Macro Install Data ... keep up to date
+    var firstMacro = 60;
+    var nextMacro;
+    var lastMacro = 65;
+    var macro_array = [];
+    macro_array[60] = new MacroInst(60,"macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
+    macro_array[61] = new MacroInst(61,"macros","INDEXER: Center-Indexer","Find center point around shaft");
+    macro_array[62] = new MacroInst(62,"macros","Touch-in-Z","Just touch off in Z and stop");
+    macro_array[63] = new MacroInst(63,"macros","Align Mandrel","Check alignment of Mandrel on Indexer");
+    macro_array[64] = new MacroInst(64,"macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
+    macro_array[65] = new MacroInst(65,"macros","INDEXER: Spin","Spin Cutter to do Finishing");
+
+// Quick Start Page ............................
+$("#call-run-homePen").click(function(evt) {
+  var sbp_file1 = "jobs/home_pen.sbp";
+//  var sbp_file2 = "jobs/pen_blank_1.sbp";
+  load_SBPfile_run(sbp_file1);
+//  load_SBPfile_run(sbp_file2); // !! Can't run two sequentially without callback
+});
+
+$("#call-run-blank-1").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_1.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-run-blank-2").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_2.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-patriot").click(function(evt) {
+  var sbp_file = "jobs/patriot.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-twister").click(function(evt) {
+  var sbp_file = "jobs/twister.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-monogram").click(function(evt) {
+  var sbp_file = "jobs/monogram.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+// General Page ..................................
+$("#install-pen-macros").click(function(evt) {
+      console.log("called_first");
+      nextMacro = firstMacro;
+      installNext(nextMacro);
+});
+
+$("#call-cutterheight").click(function(evt) {
+    fabmo.runSBP('MH,');
+  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
+  // macro 72 should set 0 just in case we need to reuse after power off, etc
+});
+
+$("#call-spin-indexer").click(function(evt) {
+  fabmo.runSBP('C#,65');
+});
+
+$("#call-safepark").click(function(evt) {
+    fabmo.runSBP("MZ, $z_penpark" + "\n" + "J2, $x_penpark, $y_penpark" + "\n");
+    //pull z up to safe z (clearing indexer)
+    //then move to parking location at rear
+});
+
+
+// APP FUNCTIONS --------------------------------------------------------------
 
    var that;
 function updateConsolidation() {
@@ -32,7 +101,7 @@ function load_SBPfile_run (file) {
     })
     .done(function() {
         console.log("LOADED - ", file );
-        console.log("With: ", content );
+        //console.log("With: ", content );
       fabmo.runSBP(content);
   });
 }
@@ -45,7 +114,7 @@ function load_SBPfile_submitjob (file) {
     })
     .done(function() {
         console.log("LOADED/PASSED - ", file );
-        console.log("With: ", content );
+        //console.log("With: ", content );
       job = file.replace('jobs/', '');
       job = job.replace('.sbp', '');
       fabmo.submitJob({
@@ -99,7 +168,7 @@ function load_SBPfile_submitjob (file) {
 }
 */
 
-// Load Macro Files (sequentially after each completes)
+// sub-component to Load Macro Files (sequentially after each completes)
     // First, get assignments
     function MacroInst(numMacro,type,name,description) {
     	this.num = numMacro;
@@ -155,61 +224,6 @@ function InstallMacro(numMacro) {
   });
 }
 
-// Calls for this app --------------------------------------------------------------
-
-  // Macro Install Info
-    var firstMacro = 60;
-    var nextMacro;
-    var lastMacro = 65;
-    var macro_array = [];
-    macro_array[60] = new MacroInst(60,"macros","Pen-Making Settings","Set/Change Tool-Specific Values for Pen Making");
-    macro_array[61] = new MacroInst(61,"macros","INDEXER: Center-Indexer","Find center point around shaft");
-    macro_array[62] = new MacroInst(62,"macros","Touch-in-Z","Just touch off in Z and stop");
-    macro_array[63] = new MacroInst(63,"macros","Align Mandrel","Check alignment of Mandrel on Indexer");
-    macro_array[64] = new MacroInst(64,"macros","Insert New Pen-Making Cutter","Change cutters for Pen Making");
-    macro_array[65] = new MacroInst(65,"macros","INDEXER: Spin","Spin Cutter to do Finishing");
-
-$("#install-pen-macros").click(function(evt) {
-      console.log("called_first");
-      nextMacro = firstMacro;
-      installNext(nextMacro);
-});
-
-$("#call-run-homePen").click(function(evt) {
-  var sbp_file1 = "jobs/home_pen.sbp";
-  var sbp_file2 = "jobs/pen_blank_1.sbp";
-  load_SBPfile_run(sbp_file1);
-//  load_SBPfile_run(sbp_file2); // !! Can't run two sequentially without callback
-});
-
-$("#call-run-blank-1").click(function(evt) {
-  var sbp_file = "jobs/pen_blank_1.sbp";
-  load_SBPfile_run(sbp_file);
-});
-
-$("#call-run-blank-2").click(function(evt) {
-  var sbp_file = "jobs/pen_blank_2.sbp";
-  load_SBPfile_run(sbp_file);
-});
-
-$("#call-cutterheight").click(function(evt) {
-    fabmo.runSBP('MH,');
-  // call macro 72? prompt and make move to set cutter? pull up and position for generic run   
-  // macro 72 should set 0 just in case we need to reuse after power off, etc
-});
-
-$("#call-spin-indexer").click(function(evt) {
-  fabmo.runSBP('C#,65');
-});
-
-$("#call-safepark").click(function(evt) {
-    fabmo.runSBP('MH');
-    //pull z up to safe z (clearing indexer)
-    //then move to parking location at rear
-});
-
-
-
 $("#call-submitJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   load_SBPfile_submitjob(sbp_file);
@@ -219,8 +233,6 @@ $("#call-injectJob").click(function(evt) {
   var sbp_file = "jobs/test1.sbp";
   load_SBPfile_injectjob(sbp_file);
 });
-
-
 
 // Updating Unit Type before Centering Tool
 function updateUnits (callback){
@@ -239,8 +251,7 @@ console.log("units2: " + curUnits);
     }
 }
 
-
-// VALIDATIONS ..............................................................
+// VALIDATIONS ------------------------------------------------------
 // Trigger a validation every time an input value changes
 $(".num-input").change(function(evt) {
     validateInput($(evt.target));

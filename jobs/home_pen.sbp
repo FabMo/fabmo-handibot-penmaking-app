@@ -19,8 +19,10 @@ MY, $y_mandrel_front_touch     ' Move over mandrel
 ' Unplug and Remove Router and RESUME
 PAUSE
 
-MZ, $z_topMandrel_toCenter     ' Z position for cutter touching Mandrel
-VA, ,,,,,,,,$z_mandrel_offset  ' Set Current Z Table Base in terms of Mandrel Centerline
+MZ, $z_mandrel_offset         ' Z position for cutter touching Mandrel
+PAUSE
+
+VA, ,,$z_topMandrel_toCenter  ' Set Current Z Table Base in terms of Mandrel Centerline
 
 ' Install Cutter and Lower Router so Cutter JUST TOUCHES MANDREL HEAD; TIGHTEN, PLUG-IN, then RESUME
 PAUSE

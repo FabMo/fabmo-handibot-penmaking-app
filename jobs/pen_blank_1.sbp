@@ -2,7 +2,6 @@
 ' th 12/15/2017
 
 ' Initial Position
-ST                             ' Be in Table Base Coordinates at Start
 MZ, 1
 
 MX, 0
@@ -13,7 +12,6 @@ MZ, 0.5                        ' Cutter should be just above start point for fir
 PAUSE
 VA, ,$file_Y_coordinates       ' Set for this blank
 MZ, 0.6                        ' Confirming move ...
-PAUSE .5
 MZ, 0.5
 
 ' Tool is Now Ready to run First Blank in Project (make sure Router is Plugged-In and On)!

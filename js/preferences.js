@@ -19,24 +19,25 @@
 //   //cfg.opensbp.variables.x_mandrel_offset = $("#pref-input-x-mandrel-offset");
 // }
 
-
+// Update & SAVE VALUES
 $("#pref-save").click(function(evt) {
 	var new_x_mandrel_offset = "$x_mandrel_offset = " + validateInput($("#pref-input-x-mandrel-offset"));
   var new_z_mandrel_offset = "$z_mandrel_offset = " + validateInput($("#pref-input-z-mandrel-offset"));
+  var new_y_mandrel_front_touch = "$y_mandrel_front_touch = " + validateInput($("#pref-input-y-mandrel-front-touch"));
+  var new_z_topMandrel_toCenter = "$z_topMandrel_toCenter = " + validateInput($("#pref-input-z-topmandrel-tocenter"));
+  var new_y_blank_1_front = "$y_blank_1_front = " + validateInput($("#pref-input-y-blank-1-front"));
+  var new_y_blank_1_back = "$y_blank_1_back = " + validateInput($("#pref-input-y-blank-1-back"));
+  var new_y_blank_2_front = "$y_blank_2_front = " + validateInput($("#pref-input-y-blank-2-front"));
+  var new_y_blank_2_back = "$y_blank_2_back = " + validateInput($("#pref-input-y-blank-2-back"));
+  var new_file_Y_coordinates = "$file_Y_coordinates = " + validateInput($("#pref-input-file-y-coordinates"));
+  var new_z_penpark = "$z_penpart = " + validateInput($("#pref-input-z-penpark"));
+  var new_y_penpark = "$y_penpart = " + validateInput($("#pref-input-y-penpark"));
+  var new_x_penpark = "$x_penpart = " + validateInput($("#pref-input-x-penpark"));
 
-  var new_z_plate_thickness_str = "$ZZeroPlateThickness = " + validateInput($("#pref-input-plate-offset"));
-  var new_x_backoff_str = "$x_backoff = " + validateInput($("#pref-input-x-pull"));
-  var new_y_backoff_str = "$y_backoff = " + validateInput($("#pref-input-y-pull"));
-  var new_z_backoff_str = "$z_backoff = " + validateInput($("#pref-input-z-pull"));
-  var new_x_park_str = "$x_park = " + validateInput($("#pref-input-x-park"));
-  var new_y_park_str = "$y_park = " + validateInput($("#pref-input-y-park"));
-  var new_z_park_str = "$z_park = " + validateInput($("#pref-input-z-park"));
-  
-  fabmo.runSBP(new_x_mandrel_offset + "\n");
-//  fabmo.runSBP(new_z_mandrel_offset + "\n" + new_z_plate_thickness_str + "\n" + new_x_backoff_str + "\n" + new_y_backoff_str + "\n" + new_z_backoff_str + "\n" + new_x_park_str  + "\n" + new_y_park_str  + "\n" + new_z_park_str);
+  fabmo.runSBP(new_x_mandrel_offset + "\n" + new_z_mandrel_offset + "\n" + new_y_mandrel_front_touch + "\n" + new_z_topMandrel_toCenter + "\n" + new_y_blank_1_front + "\n" + new_y_blank_1_back + "\n" + new_y_blank_2_front + "\n" + new_y_blank_2_back + "\n" + new_file_Y_coordinates + "\n" + new_z_penpark + "\n" + new_x_penpark + "\n" + new_y_penpark + "\n");
 });
 
-// Or, CANCEL
+// Reset Display Variables (to existing) on CANCEL
 $("#pref-cancel").click(function(evt) {
   fabmo.getConfig(function(err, cfg) {
     if (cfg.opensbp.variables.z_mandrel_offset) {
@@ -66,16 +67,24 @@ $("#pref-cancel").click(function(evt) {
     if (cfg.opensbp.variables.file_Y_coordinates) {
       $('#pref-input-file-y-coordinates').val(cfg.opensbp.variables.file_Y_coordinates);
     }  
+    if (cfg.opensbp.variables.z_penpark) {
+      $('#pref-input-z-penpark').val(cfg.opensbp.variables.z_penpark);
+    }  
+    if (cfg.opensbp.variables.x_penpark) {
+      $('#pref-input-x-penpark').val(cfg.opensbp.variables.x_penpark);
+    }  
+    if (cfg.opensbp.variables.y_penpark) {
+      $('#pref-input-y-penpark').val(cfg.opensbp.variables.y_penpark);
+    }  
   });
 });
 
-// Make Sure Values that could have changed are updated
+// Re-Read All Values -- Some may have changed
 $("#tab-preferences-link").click(function(evt) {
   fabmo.getConfig(function(err, cfg) {
     if (cfg.opensbp.variables.z_mandrel_offset) {
       $('#pref-input-z-mandrel-offset').val(cfg.opensbp.variables.z_mandrel_offset);
     }
-console.log("reading it here **********");
     if (cfg.opensbp.variables.x_mandrel_offset) {
       $('#pref-input-x-mandrel-offset').val(cfg.opensbp.variables.x_mandrel_offset);
     }
@@ -99,6 +108,15 @@ console.log("reading it here **********");
     }  
     if (cfg.opensbp.variables.file_Y_coordinates) {
       $('#pref-input-file-y-coordinates').val(cfg.opensbp.variables.file_Y_coordinates);
+    }  
+    if (cfg.opensbp.variables.z_penpark) {
+      $('#pref-input-z-penpark').val(cfg.opensbp.variables.z_penpark);
+    }  
+    if (cfg.opensbp.variables.x_penpark) {
+      $('#pref-input-x-penpark').val(cfg.opensbp.variables.x_penpark);
+    }  
+    if (cfg.opensbp.variables.y_penpark) {
+      $('#pref-input-y-penpark').val(cfg.opensbp.variables.y_penpark);
     }  
   });
 });
