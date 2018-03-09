@@ -1,0 +1,6 @@
+' Increase B position by 5 degrees and Zero; for Pen Making Set Up
+
+MB, %(5) + 5
+VA,,,,,0,,,,,,0
+
+END

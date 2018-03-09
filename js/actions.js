@@ -70,6 +70,24 @@ $("#call-spin-indexer").click(function(evt) {
   fabmo.runSBP('C#,65');
 });
 
+$("#call-rot-b-up").click(function(evt) {
+  var sbp_file = "jobs/B_up.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-rot-b-dn").click(function(evt) {
+  var sbp_file = "jobs/B_dn.sbp";
+  load_SBPfile_run(sbp_file);
+});
+
+$("#call-ck-align").click(function(evt) {
+  fabmo.runSBP('C#,63');
+});
+
+$("#call-cutterheight").click(function(evt) {
+  fabmo.runSBP('C#,64');
+});
+
 $("#call-safepark").click(function(evt) {
     fabmo.runSBP("MZ, $z_penpark" + "\n" + "J2, $x_penpark, $y_penpark" + "\n");
     //pull z up to safe z (clearing indexer)
