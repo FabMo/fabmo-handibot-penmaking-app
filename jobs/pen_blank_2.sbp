@@ -1,25 +1,18 @@
 '----------------------------------------------------------------
-'SHOPBOT ROUTER FILE IN INCHES For Setting Up Pen Carving
 ' th 12/15/2017
 
-SU,0                           ' Set to Inches; Units will auto-revert to current starting units at end of file
-
-'--- Settings ---              ' Initialize variables and speeds ...
-MS, 2,1  				       ' Speeds will auto-revert back to current values at end of file
-JS, 3,2                        ' (But not that cutting speeds in file will over-ride these app settings
-
-' Position for Start
+' Initial Position
 MZ, 1
-MY, $y_blank_2_front
-MZ, 0.4                        ' Cutter should be just above start point for first blank
 
-' If Location looks correct, hit RESUME to Set File Coordinates
+MX, 0
+MY, $y_blank_2_front
+MZ, 0.5                        ' Cutter should be just above start point for first blank
+
+' If Location looks correct, hit RESUME to Set Start Point and Continue; Blanks should be positioned with surface flat
 PAUSE
 VA, ,$file_Y_coordinates       ' Set for this blank
-MZ, 0.5                        ' Confirming move ...
-
-' Tool is Now Ready to run Second Blank in Project!
-PAUSE
-
+MZ, 0.6                        ' Confirming move ...
+MZ, 0.5
 
 END
+

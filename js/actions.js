@@ -32,6 +32,10 @@ $("#call-run-blank-1").click(function(evt) {
   var sbp_file = "jobs/pen_blank_1.sbp";
   load_SBPfile_run(sbp_file);
 });
+$("#call-run-blank-1b").click(function(evt) {
+  var sbp_file = "jobs/pen_blank_1.sbp";
+  load_SBPfile_run(sbp_file);
+});
 
 $("#call-run-blank-2").click(function(evt) {
   var sbp_file = "jobs/pen_blank_2.sbp";
@@ -66,7 +70,10 @@ $("#call-cutterheight").click(function(evt) {
   // macro 72 should set 0 just in case we need to reuse after power off, etc
 });
 
-$("#call-spin-indexer").click(function(evt) {
+$("#call-spin-indexera").click(function(evt) {
+  fabmo.runSBP('C#,65');
+});
+$("#call-spin-indexerb").click(function(evt) {
   fabmo.runSBP('C#,65');
 });
 
