@@ -9,7 +9,7 @@
 SU, 0            ' Set to Inches; Units will auto-revert to current starting units at end of file
 
 '--- Settings ---
-&ShaftDia = 0.2500  ' (inch equivalent of 7mm)
+&ShaftDia = 0.2500  ' of drill rod
 &HubDiameter = 1.4095
 &HubRadius = (&HubDiameter/2) + 0.1
 $ContactInput = 1
@@ -23,18 +23,22 @@ $ContactInput = 1
 MS, 1, 1	' Speeds will auto-revert back to current values at end of file
 JS, 3, 3
 
+'notes: depth not quite right on initial plunge, side of hub and mandrel plunge ... not quite wide enough on hub; clips a problem;
+'           ... need to incorporate variables
+
 ' -------- Main Program Section --------
    'PAUSE "Attach ZZero Alligator Clip to Cutter Shank. -Resume- when Ready"
    'PAUSE "Attach Calibration Alligator Clip wire to Mandrel Shank and Swing-Out Target. -Resume- when Ready"
    GOSUB check_input
+
    'Start at top of mandrel hub
-   &xpos = %(1)
-   &ypos = %(2)
-   &bpos = %(5)
-   GOSUB touch_in_z
-   GOSUB find_center
-   &Hub = (&rightLoc - &leftLoc)
-   &HubDiameter = &Hub - &ShaftDia
+       &xpos = %(1)
+       &ypos = %(2)
+       &bpos = %(5)
+     GOSUB touch_in_z
+     GOSUB find_center
+       &Hub = (&rightLoc - &leftLoc)
+       &HubDiameter = &Hub - &ShaftDia
    PAUSE "Hub Diameter = " + &HubDiameter
    &Radius = &HubDiameter/2
    &HubRadius = &Radius + 0.1
@@ -101,7 +105,10 @@ check_input:
 	RETURN
 
 check_input_fail:
-    END 'Input switch is already tripped. Cannot zero the tool. Move Off Switch and Retry.
+  'Input switch is already tripped. Cannot zero the tool. Quit, Move Off Switch, and Retry.
+	PAUSE
+' Following format not working yet ...
+'    END "Input switch is already tripped. Cannot zero the tool. Move Off Switch and Retry."
 
 END
 
