@@ -3,7 +3,7 @@
 'Begin First Toolpath:
 C6 'Spindle on
 
-MS,2,1
+MS,3,3
 JZ,0.550000 'Jog Z axis to safe height
 J5,0.000,-1.015541,0.550000,,179.295828
 J5,0.000,-1.015541,0.500000,,179.295828
@@ -20814,7 +20814,7 @@ JB, 0
 
 'REPOSITIONING ===========================================================
 
-VA, ,,,,,,,0                    ' Return Y to Table Base Value
+'VA, ,,,,,,,0                    ' Return Y to Table Base Value
 MY, $y_blank_2_front            ' Position for second blank
 VA, ,-1.015541                  ' Set local start value
 
@@ -33473,7 +33473,7 @@ JB, 0
 MY, -1.015541
 
 C6 'Spindle on
-MS,1.5,1.5            ' A little slower for  v-carve pass
+MS,3,3            ' A little slower for  v-carve pass
 
 JZ,1.0000 'Jog Z axis to safe height
 J5,0.000,0.716716,0.550000,,-129.917376

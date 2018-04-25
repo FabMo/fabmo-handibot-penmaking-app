@@ -28,7 +28,7 @@ $("#call-run-homePen").click(function(evt) {
 //  load_SBPfile_run(sbp_file2); // !! Can't run two sequentially without callback
 });
 
-$("#call-run-blank-1").click(function(evt) {
+$("#call-run-blank-1a").click(function(evt) {
   var sbp_file = "jobs/pen_blank_1.sbp";
   load_SBPfile_run(sbp_file);
 });

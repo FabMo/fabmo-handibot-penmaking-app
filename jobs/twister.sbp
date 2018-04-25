@@ -2,7 +2,7 @@
 'TWISTER PEN MAKING PROJECT
 
 SO,1,1					'Turn on router
-MS,2.00,1.00
+MS,3,3
 
 JZ,1.000000				'Jog Z axis to safe height
 
@@ -25110,7 +25110,7 @@ JZ,1.000000					'Jog Z axis to safe height
 SO,1,0					'Turn off router
 
 'REPOSITION =======================================================
-VA, ,,,,,,,0            ' Return Y to Table Base Coordinates
+'VA, ,,,,,,,0            ' Return Y to Table Base Coordinates
 MY, $y_blank_2_front
 VA, ,-1.04875
 JB, 0
