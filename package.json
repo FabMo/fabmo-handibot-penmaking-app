@@ -3,7 +3,7 @@
   "main": "./index.html",
   "icon": "icon.png",
   "icon_color": "white",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Ted Hall + Gordon Bergfors + Ryan Sturmer + Jimmy Lucidarme + Brendan Collins",
   "website": "http://www.handibot.com",
   "description": "Utilities for Pen Making",

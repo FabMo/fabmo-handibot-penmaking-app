@@ -30,7 +30,6 @@
                 <div class="container">
                    <img src="img/sample-pen-vs-labeled.png">
                    <img src="img/twister-labeled.png">
-                   <img src="img/twister-labeled.png">
                 </div>	
             </h2>
 
@@ -62,7 +61,7 @@
       			<p><strong> Now, SELECT your Project to start Pen Making!.</strong></p>
 
               <h3> The PROJECTS </h3>
-              <h3><a class="btn btn-success" id="call-patriot"> Patriot Pen Project </a><a class="btn btn-success" id="call-twister"> Twister Project </a><a class="btn btn-success" id="call-monogram"> Monogram Project (sample lettering; see documentation)</a></h3>
+              <h3><a class="btn btn-success" id="call-patriot"> Patriot Pen Project </a><a class="btn btn-success" id="call-twister"> Twister Project </a></h3>
 
       			<p><strong> Great. If all went well, you've machined your Pen Station Project.</strong></p>
             <hr width = "90%" noshade>
@@ -132,6 +131,7 @@
             </div>  
             <div>
               <hr class="long" width = "90%" noshade>
+              <hr class="long" width = "90%" noshade>
               <span class="label label-warning"> Indexer Alignment </span>
                 <p class="long"> </p>
                 <p class="long"> You may be just setting up an Indexer for Pen Making, your tool may have been jostled, the mounting of the Handibot or Indexer may be changed from the factory configuration, or something else may have caused the indexer and mandrel to go out of alignment. This routine will check centerline locations of the mandrel for you so you can evaluate whether everything is properly aligned. It will also determine the correct X and Z offsets for the mandre.</p>
@@ -156,13 +156,16 @@
         <!-- Details Pane -->
         <div class="tab-pane" id="tab-details">
             <h2>Detailed Info on this App and Pen-Making Macros</h2>
-            <p>This App is intended to help make the pen-making projects of Handibot's "Pen Station" easy to get started with. Additionally, you'll be able to modify settings and variables here so that you can continue to use much of the functionality with other pen projects of for automating your own pen production work. You don't really need any of these tools for using the indexer or making pens, but we think they help make some of the routine work such as aligning, setting up the tool, and positioning during pen carving more straightforward. And, they provide programming examples if you want to set up this kind of App for yourself.</p>
+            <p>This App is intended to help make the pen-making projects of Handibot's "Pen Station" easy to get started with. Additionally, you'll be able to modify settings and variables here so that you can continue to use much of the functionality with other pen projects or for automating your own pen production work. You don't really need any of these tools for using the indexer or making pens, but we think they help make some of the routine work such as aligning, setting up the tool, and positioning during pen carving more straightforward. And, they provide programming examples if you want to set up this kind of App for yourself.</p>
+
+            <h2>Homing Tool for Pen Work</h2>
+            The primary function for normal pen-making work flow is "Homing". Homing is always the starting point. The tool will first home in the normal fashion (using Macro 3). Then, it will use the stored offsets for pen making (created in the previous step) to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero from the initial zeroing, but uses temporary offsets from it to position the cutter over blanks. This system gets you in position for accurate pen-making and makes it possible to return to your exact position in a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). And just a note, as you became aware in your initial Handibot Quick Start, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
+
+            The Pen Making Tab also includes some utlities for moving the tool around during pen-making and for calling some of the individual positioning routines -- such as for installing a new cutter and updating its location.
 
             <h2>Getting the Tool Aligned and Determining Offsets</h2>
-            <p>The general strategy is to provide tools that help with aligning the indexer, or checking alignment, and then provide tools that help put the appropriate location "offsets" in place (moving the working zero locations) for running pen-carving files -- once set up, you can just turn your Handibot on, run the pen-making homing routine, and you are ready to cut.</p>
+            <p>The last portion of the Pen Making tab is an "alignment" tool to help with aligning the indexer or checking alignment. During the process, location "offsets" are recorded and the user has the option of storing them at the end of the procedure as updated values specific to the tool. These are some of the values that can also be adjusted on the Preferences tab.</p>
             
-            <h3>Homing Tool for Pen Work</h3>
-            The primary function for normal pen-making work flow is "Homing". Homing is always the starting point. The tool will first home in the normal fashion (using Macro 3). Then, it will use the stored offsets for pen making (created in the previous step) to shift the X and Z zero directly over the Rotary Indexer. The tool retains the Y zero from the initial zeroing, but uses temporary offsets from it to position the cutter over blanks. This system gets you in position for accurate pen-making and makes it possible to return to your exact position in a file if for some reason cutting is disrupted (e.g., power failure or cutter damage). And just a note, as you became aware in your initial Handibot Quick Start, Homing WILL MAKE SOME NOISE as the tool hits the END STOPS to locate it position.</p>
 
             <div>
               <hr class="long" width = "90%" noshade>
@@ -180,7 +183,7 @@
 
 	                <div class="form-group">
 	                  <div class="col-sm-12 has-success" style="text-align: right;">
-	                    <a class="btn btn-success btn-lg" id="pref-save">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
+	                    <a class="btn btn-success btn-lg" id="pref-save-1">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
 	                  </div>
 	                </div>
 
@@ -307,7 +310,7 @@
 	                
 	                <div class="form-group">
 	                  <div class="col-sm-12 has-success" style="text-align: right;">
-	                    <a class="btn btn-success btn-lg" id="pref-save">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
+	                    <a class="btn btn-success btn-lg" id="pref-save-2">SAVE</a>&nbsp;&nbsp;<a href="#tab-details" class="btn btn-warning btn-lg" id="pref-cancel">CANCEL</a>
 	                  </div>
 	                </div>
 	              </form>

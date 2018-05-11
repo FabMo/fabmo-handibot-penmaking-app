@@ -20,8 +20,15 @@
 // }
 
 // Update & SAVE VALUES
-$("#pref-save").click(function(evt) {
-	var new_x_mandrel_offset = "$x_mandrel_offset = " + validateInput($("#pref-input-x-mandrel-offset"));
+$("#pref-save-1").click(function(evt) {
+    do_save_prefs();
+});
+$("#pref-save-2").click(function(evt) {
+    do_save_prefs();
+});
+
+function do_save_prefs () {
+  var new_x_mandrel_offset = "$x_mandrel_offset = " + validateInput($("#pref-input-x-mandrel-offset"));
   var new_z_mandrel_offset = "$z_mandrel_offset = " + validateInput($("#pref-input-z-mandrel-offset"));
   var new_y_mandrel_front_touch = "$y_mandrel_front_touch = " + validateInput($("#pref-input-y-mandrel-front-touch"));
   var new_z_topMandrel_toCenter = "$z_topMandrel_toCenter = " + validateInput($("#pref-input-z-topmandrel-tocenter"));
@@ -35,7 +42,7 @@ $("#pref-save").click(function(evt) {
   var new_x_penpark = "$x_penpart = " + validateInput($("#pref-input-x-penpark"));
 
   fabmo.runSBP(new_x_mandrel_offset + "\n" + new_z_mandrel_offset + "\n" + new_y_mandrel_front_touch + "\n" + new_z_topMandrel_toCenter + "\n" + new_y_blank_1_front + "\n" + new_y_blank_1_back + "\n" + new_y_blank_2_front + "\n" + new_y_blank_2_back + "\n" + new_file_Y_coordinates + "\n" + new_z_penpark + "\n" + new_x_penpark + "\n" + new_y_penpark + "\n");
-});
+}
 
 // Reset Display Variables (to existing) on CANCEL
 $("#pref-cancel").click(function(evt) {
